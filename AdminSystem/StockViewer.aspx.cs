@@ -14,7 +14,17 @@ public partial class _1Viewer : System.Web.UI.Page
         clsStock AStock = new clsStock();
         //get the data from the session object
         AStock = (clsStock)Session["AStock"];
+
+        //display the shoe id on the page
+        Response.Write(AStock.ShoeID);
+
         //display the shoe description on the page
         Response.Write(AStock.ShoeDescription);
+
+        //display the shoe colour on the page
+        Response.Write(AStock.ShoeColour);
+
+        //display the shoe quantity on the page
+        Response.Write(AStock.Quantity);
     }
 }

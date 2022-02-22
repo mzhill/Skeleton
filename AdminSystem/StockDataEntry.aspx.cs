@@ -17,8 +17,21 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsStock
         clsStock AStock = new clsStock();
+
+        //capture the shoe id
+        AStock.ShoeID = txtShoeID.MaxLength;
+
         //capture the shoe description
         AStock.ShoeDescription = txtShoeDesc.Text;
+
+        //capture the shoe colour
+        AStock.ShoeColour = txtShoeColour.Text;
+
+        //capture the shoe quantity
+        AStock.Quantity = txtQuantity.MaxLength;
+
+
+
         //store the stock in the session object
         Session["AStock"] = AStock;
         //navigate to the viewer page
