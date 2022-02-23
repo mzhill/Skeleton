@@ -24,7 +24,7 @@ namespace Testing1
         //create an instance for a class that needs to be created 
         clsCustomer AnCustomer = new clsCustomer();
         //create some test data to assign to property 
-        int32 TestData = 1;
+        Int32 TestData = 1;
         //assign data to the property
         AnCustomer.CustomerID = TestData;
         //test to see that two values are the same
@@ -38,7 +38,7 @@ namespace Testing1
         //create an instance for a class that needs to be created
         clsCustomer AnCustomer = new clsCustomer();
         //create some test data to assign to property
-        string TestData = Steve;
+        String TestData = "Steve";
         //assing data to the property
         AnCustomer.CustomerForename = TestData;
         //test to see that two values are the same
@@ -53,7 +53,7 @@ namespace Testing1
         //create an instance for a class that needs to be created
         clsCustomer AnCustomer = new clsCustomer();
         //create some test data to assign to property
-        string TestData = Jobs;
+        String TestData = "Jobs";
         //assing data to the property
         AnCustomer.CustomerSurname = TestData;
         //test to see that two values are the same
@@ -67,7 +67,7 @@ namespace Testing1
         //create an instance for a class that needs to be created
         clsCustomer AnCustomer = new clsCustomer();
         //create some test data to assign to property
-        string TestData = Stevejobs@gmail.com;
+        String TestData = "Stevejobs@gmail.com";
         //assing data to the property
         AnCustomer.CustomerEmail = TestData;
         //test to see that two values are the same
@@ -82,7 +82,7 @@ namespace Testing1
         //create an instance for a class that needs to be created
         clsCustomer AnCustomer = new clsCustomer();
         //create some test data to assign to property
-        string TestData = 07561091607;
+        String TestData = "07561091607";
         //assing data to the property
         AnCustomer.CustomerTel = TestData;
         //test to see that two values are the same
@@ -96,7 +96,7 @@ namespace Testing1
         //create an instance for a class that needs to be created
         clsCustomer AnCustomer = new clsCustomer();
         //create some test data to assign to property
-        boolean TestData = true;
+        Boolean TestData = true;
         //assing data to the property
         AnCustomer.CustomerMembership = TestData;
         //test to see that two values are the same
@@ -110,7 +110,7 @@ namespace Testing1
         //create an instance for a class that needs to be created
         clsCustomer AnCustomer = new clsCustomer();
         //create some test data to assign to property
-        Date TestData = 29/08/2000;
+        DateTime TestData = DateTime.Now.Date;
         //assing data to the property
         AnCustomer.CustomerDOB = TestData;
         //test to see that two values are the same
