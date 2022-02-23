@@ -19,7 +19,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsStock AStock = new clsStock();
 
         //capture the shoe id
-        AStock.ShoeID = txtShoeID.MaxLength;
+        AStock.ShoeID = Convert.ToInt32(txtShoeID.Text);
 
         //capture the shoe description
         AStock.ShoeDescription = txtShoeDesc.Text;
@@ -28,9 +28,13 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AStock.ShoeColour = txtShoeColour.Text;
 
         //capture the shoe quantity
-        AStock.Quantity = txtQuantity.MaxLength;
+        AStock.Quantity = Convert.ToInt32(txtQuantity.Text);
 
+        //capture the shoe release date
+        AStock.InitialReleaseDate = Convert.ToDateTime(txtReleaseDate.Text);
 
+        //capture the shoe availability
+        
 
         //store the stock in the session object
         Session["AStock"] = AStock;

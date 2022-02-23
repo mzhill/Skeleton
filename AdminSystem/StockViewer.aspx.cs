@@ -26,5 +26,11 @@ public partial class _1Viewer : System.Web.UI.Page
 
         //display the shoe quantity on the page
         Response.Write(AStock.Quantity);
+
+        //display the shoe release date on the page
+        Response.Write(AStock.InitialReleaseDate);
+
+        //display the shoe availability on the page
+        Response.Write(AStock.Availability);
     }
 }
