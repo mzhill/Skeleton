@@ -37,14 +37,5 @@ using System.Runtime.InteropServices;
 
 namespace ClassLibrary
 {
-    public class clsStock
-    {
-        public clsStock()
-        {
-        }
-    }
 
-    public class Assert
-    {
-    }
 }
