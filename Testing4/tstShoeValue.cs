@@ -22,7 +22,7 @@ namespace Testing4
         public void ShoeIDOK()
         {
             //create an instance of the class we want to create
-            clsShoeValue AShoeValue = new clsShoeValue();
+            clsShoeValue AnShoeValue = new clsShoeValue();
             //create some test data
             Int32 TestData = 1;
             //assign the data to the property
@@ -41,7 +41,7 @@ namespace Testing4
             //assign the data to the property
             AnShoeValue.RetailPrice = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnShoeValue.ReatilPrice, TestData);
+            Assert.AreEqual(AnShoeValue.RetailPrice, TestData);
         }
 
         [TestMethod]
