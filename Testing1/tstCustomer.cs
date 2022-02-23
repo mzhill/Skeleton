@@ -67,7 +67,7 @@ namespace Testing1
         //create an instance for a class that needs to be created
         clsCustomer AnCustomer = new clsCustomer();
         //create some test data to assign to property
-        string TestData = Stevejob@gmail.com;
+        string TestData = "Stevejob@gmail.com";
         //assing data to the property
         AnCustomer.CustomerEmail = TestData;
         //test to see that two values are the same
