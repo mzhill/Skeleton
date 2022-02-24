@@ -34,7 +34,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AStock.InitialReleaseDate = Convert.ToDateTime(txtReleaseDate.Text);
 
         //capture the shoe availability
-        AStock.Availability = Convert.ToBoolean(chkAvailability.Text);
+        AStock.Availability = Convert.ToBoolean(chkAvailability.Checked);
 
         //store the stock in the session object
         Session["AStock"] = AStock;
