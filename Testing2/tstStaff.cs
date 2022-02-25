@@ -20,7 +20,7 @@ namespace Testing2
             clsStaff AStaff = new clsStaff();
             Int32 TestData = 1;
             AStaff.StaffID = TestData;
-            Assert.AreEqual(AStaff.ShaffID, TestData);
+            Assert.AreEqual(AStaff.StaffID, TestData);
         }
 
         [TestMethod]
@@ -35,7 +35,7 @@ namespace Testing2
         [TestMethod]
         public void PositionPropertyOK()
         {
-            clsStock AStaff = new clsStaff();
+            clsStaff AStaff = new clsStaff();
             String TestData = "Name";
             AStaff.Position = TestData;
             Assert.AreEqual(AStaff.Position, TestData);
@@ -63,7 +63,7 @@ namespace Testing2
             clsStaff AStaff = new clsStaff();
             Boolean TestData = true;
             AStaff.CurrentlyWorking = TestData;
-            Assert.AreEqual(AStaff.CurrentlyWorking], TestData);
+            Assert.AreEqual(AStaff.CurrentlyWorking, TestData);
         }
         [TestMethod]
         public void DateJoinedPropertyOK()
@@ -76,8 +76,4 @@ namespace Testing2
 
     }
         
-    }
-
-   
-
 }
