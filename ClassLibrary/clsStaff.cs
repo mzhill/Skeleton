@@ -10,5 +10,6 @@ namespace ClassLibrary
         public string Position { get; set; }
         public string StaffName { get; set; }
         public int StaffTel { get; set; }
+        public int StaffSalary { get; set; }
     }
 }
