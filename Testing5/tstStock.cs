@@ -93,5 +93,153 @@ namespace Testing5
             //test to see that the two values are the same
             Assert.AreEqual(AStock.InitialReleaseDate, TestData);
         }
+
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //Boolean variable to store the results of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 ShoeID = 1;
+            //invoke the method
+            Found = AStock.Find(ShoeID);
+            //test to see if the result is true
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestShoeIDFound()
+        {
+            //create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ShoeID = 5;
+            //invoke the method
+            Found = AStock.Find(ShoeID);
+            //check the shoe id
+            if (AStock.ShoeID != 5)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestInitialReleaseDateFound()
+        {
+            //create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ShoeID = 5;
+            //invoke the method
+            Found = AStock.Find(ShoeID);
+            //check the property
+            if (AStock.InitialReleaseDate != Convert.ToDateTime("14/08/2002")) ;
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestShoeDescFound()
+        {
+            //create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ShoeID = 5;
+            //invoke the method
+            Found = AStock.Find(ShoeID);
+            //check the property
+            if (AStock.ShoeDescription != "Air Force 1")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestShoeColourFound()
+        {
+            //create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ShoeID = 5;
+            //invoke the method
+            Found = AStock.Find(ShoeID);
+            //check the property
+            if (AStock.ShoeColour != "White")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestQuantityFound()
+        {
+            //create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ShoeID = 5;
+            //invoke the method
+            Found = AStock.Find(ShoeID);
+            //check the property
+            if (AStock.Quantity != 10)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestAvailabilityFound()
+        {
+            //create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ShoeID = 5;
+            //invoke the method
+            Found = AStock.Find(ShoeID);
+            //check the property
+            if (AStock.Availability != true)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
     }
 }
