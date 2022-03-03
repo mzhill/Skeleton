@@ -146,7 +146,7 @@ namespace Testing5
             //invoke the method
             Found = AStock.Find(ShoeID);
             //check the property
-            if (AStock.InitialReleaseDate != Convert.ToDateTime("14/08/2002")) ;
+            if (AStock.InitialReleaseDate != Convert.ToDateTime("14/08/2002"))
             {
                 OK = false;
             }
