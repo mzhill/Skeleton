@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,7 +15,7 @@ public partial class _1Viewer : System.Web.UI.Page
         //get the data from the session object
         AnShoeValue = (clsShoeValue)Session["AnShoeValue"];
         //display the Shoe from this entry
-        Response.Write(AnShoeValue.Shoe);
+        Response.Write(AnShoeValue.ShoeID);
 
     }
 }

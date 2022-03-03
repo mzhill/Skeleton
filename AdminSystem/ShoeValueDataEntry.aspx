@@ -14,7 +14,7 @@
 <body style="width: 1485px; height: 846px">
     <form id="IblStock" runat="server">
         <div style="height: 314px">
-            <asp:Label ID="lblShoeValue" runat="server" Text="Shoe" width="76px"></asp:Label>
+            <asp:Label ID="lblShoeID" runat="server" Text="ShoeID" width="76px"></asp:Label>
             <asp:TextBox ID="txtShoe" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="IblRetailPrice" runat="server" Text="RetailPrice" width="76px"></asp:Label>
@@ -34,13 +34,11 @@
             <asp:CheckBox ID="chkStock" runat="server" Text="Stock" />
             <br />
             <br />
-            <br />
-            <br />
-            <br />
             <asp:Label ID="IblError" runat="server"></asp:Label>
             <br />
+            <br />
             <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" style="height: 26px" />
-            <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+            &nbsp;<asp:Button ID="btnCancel" runat="server" Text="Cancel" />
         </div>
     </form>
 </body>

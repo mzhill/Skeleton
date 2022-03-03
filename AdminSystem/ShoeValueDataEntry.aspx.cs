@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ClassLibary;
+using ClassLibrary;
 
 
 public partial class _1_DataEntry : System.Web.UI.Page
@@ -22,11 +22,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         //create a new instance of clsShoeValue
-        clsShoeValue AnShoeValue = clsShoeValue
+        clsShoeValue AnShoeValue = new clsShoeValue();
         //capture the Shoe
-        AnShoeVaue.Shoe = txtShoe.Test;
+        AnShoeValue.ShoeID = Convert.ToInt32(txtShoe.Text);
         //store the shoevalue in the session object
-        Session["AnShoeValue"] = AnShoeValue
+        Session["AnShoeValue"] = AnShoeValue;
         //naviagte to viewer page
         Response.Redirect("ShoeValueViewer.aspx");
     }
