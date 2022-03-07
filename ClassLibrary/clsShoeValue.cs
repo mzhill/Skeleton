@@ -1,4 +1,6 @@
-﻿namespace ClassLibrary
+﻿using System;
+
+namespace ClassLibrary
 {
     public class clsShoeValue
     {
@@ -8,5 +10,11 @@
         public int Catergory { get; set; }
         public int ReleaseDate { get; set; }
         public int Stock { get; set; }
+
+        public bool Find(int shoeID)
+        {
+            //always return true
+            return true;
+        }
     }
 }
