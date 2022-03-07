@@ -93,19 +93,6 @@ namespace ClassLibrary
             }
         }
 
-        /*public bool Find(int ShoeID)
-        {
-            //set the private data members to the test data value
-            mShoeID = 5;
-            mShoeDesc = "Air Force 1";
-            mShoeColour = "White";
-            mQuantity = 10;
-            mInitialReleaseDate = Convert.ToDateTime("14/08/2002");
-            mAvailability = true;
-
-            //always return true
-            return true;
-        }*/
         public bool Find(int ShoeID)
         {
             //create an instance of the data connection
