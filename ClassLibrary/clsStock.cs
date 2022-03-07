@@ -93,7 +93,7 @@ namespace ClassLibrary
             }
         }
 
-        public bool Find(int ShoeID)
+        /*public bool Find(int ShoeID)
         {
             //set the private data members to the test data value
             mShoeID = 5;
@@ -105,6 +105,35 @@ namespace ClassLibrary
 
             //always return true
             return true;
+        }*/
+        public bool Find(int ShoeID)
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the shoe id to search for
+            DB.AddParameter("@ShoeID", ShoeID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStock_FilterByShoeID");
+            //if one record is found (there should be either one or zero)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mShoeID = Convert.ToInt32(DB.DataTable.Rows[0]["ShoeID"]);
+                mShoeDesc = Convert.ToString(DB.DataTable.Rows[0]["ShoeDescription"]);
+                mShoeColour = Convert.ToString(DB.DataTable.Rows[0]["ShoeColour"]);
+                mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
+                mInitialReleaseDate = Convert.ToDateTime(DB.DataTable.Rows[0]["InitialReleaseDate"]);
+                mAvailability = Convert.ToBoolean(DB.DataTable.Rows[0]["Availability"]);
+
+                //return that everything worked OK
+                return true;
+            }
+            //if no record is found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
         }
     }
 }
