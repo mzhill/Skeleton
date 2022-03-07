@@ -111,7 +111,7 @@ namespace Testing4
             Assert.IsTrue(Found);
         }
         [TestMethod]
-        public void TestShoeVlaueFound()
+        public void TestShoeValueFound()
         {
             //create an instance of the class we want to create
             clsShoeValue AnShoeValue = new clsShoeValue();
