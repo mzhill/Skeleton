@@ -16,21 +16,21 @@ public partial class _1Viewer : System.Web.UI.Page
         AStock = (clsStock)Session["AStock"];
 
         //display the shoe id on the page
-        Response.Write(AStock.ShoeID);
+        Response.Write(AStock.ShoeID + "\n");
 
         //display the shoe description on the page
-        Response.Write(AStock.ShoeDescription);
+        Response.Write(AStock.ShoeDescription + "\n");
 
         //display the shoe colour on the page
-        Response.Write(AStock.ShoeColour);
+        Response.Write(AStock.ShoeColour + "\n");
 
         //display the shoe quantity on the page
-        Response.Write(AStock.Quantity);
+        Response.Write(AStock.Quantity + "\n");
 
         //display the shoe release date on the page
-        Response.Write(AStock.InitialReleaseDate);
+        Response.Write(AStock.InitialReleaseDate + "\n");
 
         //display the shoe availability on the page
-        Response.Write(AStock.Availability);
+        Response.Write(AStock.Availability + "\n");
     }
 }
