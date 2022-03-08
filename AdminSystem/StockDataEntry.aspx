@@ -11,18 +11,24 @@
         <div>
             <asp:Label ID="lblShoeID" runat="server" Text="Shoe ID:" width="119px"></asp:Label>
             &nbsp;<asp:TextBox ID="txtShoeID" runat="server"></asp:TextBox>
+            &nbsp;<asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
+            <br />
             <br />
             <asp:Label ID="lblShoeDesc" runat="server" Text="Shoe Description:" width="119px"></asp:Label>
             &nbsp;<asp:TextBox ID="txtShoeDesc" runat="server"></asp:TextBox>
             <br />
+            <br />
             <asp:Label ID="lblShoeColour" runat="server" Text="Shoe Colour:" width="119px"></asp:Label>
             &nbsp;<asp:TextBox ID="txtShoeColour" runat="server"></asp:TextBox>
+            <br />
             <br />
             <asp:Label ID="lblQuantity" runat="server" Text="Quantity:" width="119px"></asp:Label>
             &nbsp;<asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
             <br />
+            <br />
             <asp:Label ID="lblReleaseDate" runat="server" Text="Initial Release Date:"></asp:Label>
             &nbsp;<asp:TextBox ID="txtReleaseDate" runat="server"></asp:TextBox>
+            <br />
             <br />
             <asp:CheckBox ID="chkAvailability" runat="server" Text="Availability" TextAlign="Left" />
             <br />
