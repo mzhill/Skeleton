@@ -11,5 +11,11 @@ namespace ClassLibrary
         public string CustomerSurname { get; set; }
         public string CustomerEmail { get; set; }
         public string CustomerTel { get; set; }
+
+        public bool Find(int addressNo)
+        {
+            //always return true
+            return true;
+        }
     }
 }
