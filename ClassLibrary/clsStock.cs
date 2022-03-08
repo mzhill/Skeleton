@@ -109,7 +109,7 @@ namespace ClassLibrary
                 mShoeDesc = Convert.ToString(DB.DataTable.Rows[0]["ShoeDescription"]);
                 mShoeColour = Convert.ToString(DB.DataTable.Rows[0]["ShoeColour"]);
                 mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
-                mInitialReleaseDate = Convert.ToDateTime(DB.DataTable.Rows[0]["InitialReleaseDate"]);
+                mInitialReleaseDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Initial Release Date"]);
                 mAvailability = Convert.ToBoolean(DB.DataTable.Rows[0]["Availability"]);
 
                 //return that everything worked OK

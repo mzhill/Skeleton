@@ -103,7 +103,7 @@ namespace Testing5
             //Boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 ShoeID = 1;
+            Int32 ShoeID = 5;
             //invoke the method
             Found = AStock.Find(ShoeID);
             //test to see if the result is true
