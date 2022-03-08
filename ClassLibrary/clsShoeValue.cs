@@ -11,7 +11,7 @@ namespace ClassLibrary
         private Int32 mRetailPrice;
 
         //private data member for the address no popperty
-        private Int32 mResaleDate;
+        private Int32 mResalePrice;
 
         //private data member for the address no popperty
         private Int32 mCatergory;
@@ -44,8 +44,8 @@ namespace ClassLibrary
 
             }
         }
-        public int ResalePrice 
 
+        public int ResalePrice { get; set; }
 
         public int Catergory { get; set; }
         public int ReleaseDate { get; set; }
