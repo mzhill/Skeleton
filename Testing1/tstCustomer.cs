@@ -155,5 +155,27 @@ namespace Testing1
             Assert.IsTrue(OK);
         }
 
+        [TestMethod]
+        public void TestCustomerDOBFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean to record if data is OK
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 3;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            //check the property
+            if (AnCustomer.CustomerDOB != Convert.ToDateTime("12/03/2002"))
+            {
+                OK = false;
+            }
+            //test to see if resut is correct
+            Assert.IsTrue(OK);
+        }
+
     }
 }
