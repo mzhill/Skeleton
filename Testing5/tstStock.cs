@@ -241,5 +241,18 @@ namespace Testing5
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //invoke the method
+            Error = AStock.Valid(ShoeDesc, ShoeColour, Quantity, InitialReleaseDate);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
     }
 }

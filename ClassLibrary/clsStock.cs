@@ -122,5 +122,11 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        //function for the public validation method
+        public string Valid(string ShoeDesc, string ShoeColour, string Quantity, string InitialReleaseDate)
+        {
+            return "";
+        }
     }
 }
