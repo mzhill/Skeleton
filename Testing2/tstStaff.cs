@@ -73,6 +73,30 @@ namespace Testing2
             AStaff.DateJoined = TestData;
             Assert.AreEqual(AStaff.DateJoined, TestData);
         }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsStaff AStaff = new clsStaff();
+            Boolean Found = false;
+            Int32 StaffID = 5;
+            Found = AStaff.Find(StaffID);
+            Assert.IsTrue(Found);
+        }
+        [TestMethod]
+        public void TestStaffIDFound()
+        {
+            clsStaff AStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 5;
+            Found = AStaff.Find(StaffID);
+            if (AStaff.StaffID != 5)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
 
     }
         
