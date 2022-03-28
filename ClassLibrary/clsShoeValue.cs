@@ -17,7 +17,7 @@ namespace ClassLibrary
         private Int32 mCatergory;
 
         //private data member for the address no popperty
-        private Int32 mReleaseDate;
+        private DateTime mReleaseDate;
 
         //private data member for the address no popperty
         private Int32 mStock;
@@ -80,7 +80,7 @@ namespace ClassLibrary
             }
         }
 
-        public int ReleaseDate
+        public DateTime ReleaseDate
         {
             get
             {
@@ -110,10 +110,28 @@ namespace ClassLibrary
             }
         }
 
-        public bool Find(int shoeID)
+        public bool Find(int ShoeID)
         {
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the shoe id to search for
+            DB.AddParameter("@ShoeID", ShoeID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblShoeValue_FilterByShoeID");
+            //if one record is found (there should be either one or zero)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+
+                mReleaseDate = Convert.ToDateTime(DB.DataTable.Rows[0][ReleaseDate]);
+
+
+                //return that everything worked OK
+                return true;
+
+                //return false indicating a problem
+                return false;
+            }
         }
     }
 }
