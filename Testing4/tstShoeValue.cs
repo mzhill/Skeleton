@@ -132,5 +132,141 @@ namespace Testing4
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void TestShoeIDFound()
+        {
+            //create an instance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //Bollen variable to store the results of the validation
+            Boolean Found = false;
+            //boolen variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ShoeID = 3;
+            //invoke the method
+            Found = AnShoeValue.Find(ShoeID);
+            //check the address no 
+            if (AnShoeValue.ShoeID != 3)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void RetailPriceFound()
+        {
+            //create an instance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //Bollen variable to store the results of the validation
+            Boolean Found = false;
+            //boolen variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ShoeID = 3;
+            //invoke the method
+            Found = AnShoeValue.Find(ShoeID);
+            //check the address no 
+            if (AnShoeValue.RetailPrice != 3)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void ResalePriceFound()
+        {
+            //create an instance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //Bollen variable to store the results of the validation
+            Boolean Found = false;
+            //boolen variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ShoeID = 3;
+            //invoke the method
+            Found = AnShoeValue.Find(ShoeID);
+            //check the address no 
+            if (AnShoeValue.ResalePrice != 3)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void CatergoryFound()
+        {
+            //create an instance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //Bollen variable to store the results of the validation
+            Boolean Found = false;
+            //boolen variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ShoeID = 3;
+            //invoke the method
+            Found = AnShoeValue.Find(ShoeID);
+            //check the address no 
+            if (AnShoeValue.Catergory != 3)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void ReleaseDateFound()
+        {
+            //create an instance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //Bollen variable to store the results of the validation
+            Boolean Found = false;
+            //boolen variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ShoeID = 3;
+            //invoke the method
+            Found = AnShoeValue.Find(ShoeID);
+            //check the property
+            if (AnShoeValue.ReleaseDate != Convert.ToDateTime("15/04/2022"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+
+        }
+
+        [TestMethod]
+        public void StockFound()
+        {
+            //create an instance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //Bollen variable to store the results of the validation
+            Boolean Found = false;
+            //boolen variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ShoeID = 3;
+            //invoke the method
+            Found = AnShoeValue.Find(ShoeID);
+            //check the address no 
+            if (AnShoeValue.Stock != 3)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+
+
+        }
+
+
     }
 }
