@@ -37,7 +37,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsShoeValue AnShoeValue = new clsShoeValue();
             //create some test data
-            Int32 TestData = 1;
+           String TestData = "£160";
             //assign the data to the property
             AnShoeValue.RetailPrice = TestData;
             //test to see that the two values are the same
@@ -50,7 +50,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsShoeValue AnShoeValue = new clsShoeValue();
             //create some test data
-            Int32 TestData = 1;
+            String TestData = "£1300";
             //assign the data to the property
             AnShoeValue.ResalePrice = TestData;
             //test to see that the two values are the same
@@ -63,7 +63,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsShoeValue AnShoeValue = new clsShoeValue();
             //create some test data
-            Int32 TestData = 1;
+            String TestData = "Jordan";
             //assign the data to the property
             AnShoeValue.Catergory = TestData;
             //test to see that the two values are the same
@@ -76,7 +76,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsShoeValue AnShoeValue = new clsShoeValue();
             //create some test data
-            Int32 TestData = 1;
+            DateTime TestData = Convert.ToDateTime("14/08/2002");
             //assign the data to the property
             AnShoeValue.ReleaseDate = TestData;
             //test to see that the two values are the same
@@ -89,7 +89,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsShoeValue AnShoeValue = new clsShoeValue();
             //create some test data
-            Int32 TestData = 1;
+            Boolean TestData = true;
             //assign the data to the property
             AnShoeValue.Stock = TestData;
             //test to see that the two values are the same
@@ -169,7 +169,7 @@ namespace Testing4
             //invoke the method
             Found = AnShoeValue.Find(ShoeID);
             //check the address no 
-            if (AnShoeValue.RetailPrice != 3)
+            if (AnShoeValue.RetailPrice != "£160")
             {
                 OK = false;
             }
@@ -190,7 +190,7 @@ namespace Testing4
             //invoke the method
             Found = AnShoeValue.Find(ShoeID);
             //check the address no 
-            if (AnShoeValue.ResalePrice != 3)
+            if (AnShoeValue.ResalePrice != "£1300")
             {
                 OK = false;
             }
@@ -212,7 +212,7 @@ namespace Testing4
             //invoke the method
             Found = AnShoeValue.Find(ShoeID);
             //check the address no 
-            if (AnShoeValue.Catergory != 3)
+            if (AnShoeValue.Catergory != "Jordan")
             {
                 OK = false;
             }
@@ -257,7 +257,7 @@ namespace Testing4
             //invoke the method
             Found = AnShoeValue.Find(ShoeID);
             //check the address no 
-            if (AnShoeValue.Stock != 3)
+            if (AnShoeValue.Stock != true)
             {
                 OK = false;
             }
