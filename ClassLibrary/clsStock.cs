@@ -122,5 +122,83 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        //function for the public validation method
+        public string Valid(string ShoeDesc, string ShoeColour, string Quantity, string InitialReleaseDate)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+
+            //is the shoe desc blank
+            if (ShoeDesc.Length == 0)
+            {
+                //record the error
+                Error = Error + "The shoe description may not be blank: ";
+            }
+
+            //if the shoe desc is too long
+            if (ShoeDesc.Length > 50)
+            {
+                //record the error
+                Error = Error + "The shoe description must be less than 50 characters: ";
+            }
+
+            //is the shoe colour blank
+            if (ShoeColour.Length == 0)
+            {
+                //record the error
+                Error = Error + "The shoe colour may not be blank: ";
+            }
+
+            //if the shoe colour is too long
+            if (ShoeColour.Length > 50)
+            {
+                //record the error
+                Error = Error + "The shoe colour must be less than 50 characters: ";
+            }
+
+            //is the quantity blank
+            if (Quantity.Length == 0)
+            {
+                //record the error
+                Error = Error + "The quantity may not be blank: ";
+            }
+
+            //if the quantity is greater than 32 characters
+            if (Quantity.Length > 32)
+            {
+                //record the error
+                Error = Error + "The quantity may not be over 32 characters: ";
+            }
+
+            try
+            {
+                //copy the initial release date value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(InitialReleaseDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past: ";
+                }
+
+                //check to see if the date is greater than todays date
+                DateTemp = Convert.ToDateTime(InitialReleaseDate);
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future: ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date is not a valid date: ";
+            }
+            
+            //return any error messages
+            return Error;
+        }
     }
 }
