@@ -135,6 +135,42 @@ namespace ClassLibrary
                //return false indicating a problem
                 return false;
             }
+
         }
+
+        //function for the public validation method
+        public string Valid(string ReleaseDate,
+                            string RetailPrice,
+                            string ResalePrice,
+                            string Catergory)
+        //thisfunction accepts 5 parameters for validation
+        //the fuction returns a string containing any error message
+        //if ni errors found thena blank string is returned
+
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //if the RetailPrice is blank
+            if (RetailPrice.Length == 0)
+            {
+                //record the error 
+                Error = Error + "The RetailPrice may not be blank";
+            }
+            //if the RetailPrice is greater than 6 characters
+            if (RetailPrice.Length > 6)
+            {
+                //record the error
+                Error = Error + "The Retail Price must be less than 6 characters : ";
+
+            }
+
+            //return any error messages
+            return Error;
+        
+            
+        }
+
+
+
     }
 }
