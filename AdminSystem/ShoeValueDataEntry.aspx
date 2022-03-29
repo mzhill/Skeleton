@@ -15,7 +15,8 @@
     <form id="IblStock" runat="server">
         <div style="height: 314px">
             <asp:Label ID="lblShoeID" runat="server" Text="ShoeID" width="76px"></asp:Label>
-            <asp:TextBox ID="txtShoe" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtShoeID" runat="server"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
             <br />
             <asp:Label ID="IblRetailPrice" runat="server" Text="RetailPrice" width="76px"></asp:Label>
             <asp:TextBox ID="txtRetailPrice" runat="server"></asp:TextBox>

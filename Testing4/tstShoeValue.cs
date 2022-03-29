@@ -7,6 +7,16 @@ namespace Testing4
     [TestClass]
     public class tstShoeValue
     {
+
+        //good test data
+        //create some test data to pass to theh method
+        string ReleaseDate = DateTime.Now.Date.ToString();
+        string RetailPrice = "100";
+        string ResalePrice = "160";
+        string Catergory = "New Balance";
+
+
+
         [TestMethod]
         public void InststanceOK()
         {
@@ -37,7 +47,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsShoeValue AnShoeValue = new clsShoeValue();
             //create some test data
-           String TestData = "£160";
+            String TestData = "160";
             //assign the data to the property
             AnShoeValue.RetailPrice = TestData;
             //test to see that the two values are the same
@@ -50,7 +60,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsShoeValue AnShoeValue = new clsShoeValue();
             //create some test data
-            String TestData = "£1300";
+            String TestData = "1300";
             //assign the data to the property
             AnShoeValue.ResalePrice = TestData;
             //test to see that the two values are the same
@@ -169,7 +179,7 @@ namespace Testing4
             //invoke the method
             Found = AnShoeValue.Find(ShoeID);
             //check the address no 
-            if (AnShoeValue.RetailPrice != "£160")
+            if (AnShoeValue.RetailPrice != "100")
             {
                 OK = false;
             }
@@ -190,7 +200,7 @@ namespace Testing4
             //invoke the method
             Found = AnShoeValue.Find(ShoeID);
             //check the address no 
-            if (AnShoeValue.ResalePrice != "£1300")
+            if (AnShoeValue.ResalePrice != "160")
             {
                 OK = false;
             }
@@ -212,7 +222,7 @@ namespace Testing4
             //invoke the method
             Found = AnShoeValue.Find(ShoeID);
             //check the address no 
-            if (AnShoeValue.Catergory != "Jordan")
+            if (AnShoeValue.Catergory != "New Balance")
             {
                 OK = false;
             }
@@ -234,7 +244,7 @@ namespace Testing4
             //invoke the method
             Found = AnShoeValue.Find(ShoeID);
             //check the property
-            if (AnShoeValue.ReleaseDate != Convert.ToDateTime("15/04/2022"))
+            if (AnShoeValue.ReleaseDate != Convert.ToDateTime("08/04/2022"))
             {
                 OK = false;
             }
@@ -248,7 +258,7 @@ namespace Testing4
         {
             //create an instance of the class we want to create
             clsShoeValue AnShoeValue = new clsShoeValue();
-            //Bollen variable to store the results of the validation
+            //Boolen variable to store the results of the validation
             Boolean Found = false;
             //boolen variable to record if data is OK (assume it is)
             Boolean OK = true;
@@ -266,7 +276,181 @@ namespace Testing4
 
 
         }
+        [TestMethod]
+        public void ValidMethodOK()
 
+        {
+            //create an instance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //string variable to stor any error message
+            String Error = "";
+            //invoke the method 
+            Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+            //test to see that the resultis correct 
+            Assert.AreEqual(Error, "");
+
+
+        }
+
+        [TestMethod]
+        public void RetailPriceMinLessOne()
+
+        {
+            //ceate an isurance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //sring variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method 
+            string RetailPrice = ""; //this should trigger an error 
+            //invoke the method
+            Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+
+
+        }
+        [TestMethod]
+        public void RetailPriceMin()
+
+        {
+            //ceate an isurance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //sring variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method 
+            string RetailPrice = "a"; //this should trigger an error 
+            //invoke the method
+            Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+
+        }
+        [TestMethod]
+        public void RetailPricePlusOne()
+
+        {
+            //ceate an isurance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //sring variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method 
+            string RetailPrice = "aa"; //this should trigger an error 
+            //invoke the method
+            Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void RetailPriceLessOne()
+
+        {
+            //ceate an isurance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //sring variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method 
+            string RetailPrice = "aa"; //this should trigger an error 
+            //invoke the method
+            Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+
+        }
+        [TestMethod]
+        public void RetailPriceMaxLessOne()
+
+        {
+            //ceate an isurance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //sring variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method 
+            string RetailPrice = "aaaaa"; //this should trigger an error 
+            //invoke the method
+            Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void RetailPriceMax()
+
+        {
+            //ceate an isurance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //sring variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method 
+            string RetailPrice = "aaaaaa"; //this should trigger an error 
+            //invoke the method
+            Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void RetailPriceMid()
+
+        {
+            //ceate an isurance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //sring variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method 
+            string RetailPrice = "aaa"; //this should trigger an error 
+            //invoke the method
+            Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+
+        [TestMethod]
+        public void RetailPlussOne()
+
+        {
+            //ceate an isurance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //sring variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method 
+            string RetailPrice = "aaaaaaa"; //this should trigger an error 
+                                            //invoke the method
+            Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void ReleaseDateExtremeMin()
+
+        {
+            //ceate an isurance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //string variable to story any error message
+            string Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totdays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-100);
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+
+        }
 
     }
+
 }
