@@ -248,7 +248,7 @@ namespace Testing4
         {
             //create an instance of the class we want to create
             clsShoeValue AnShoeValue = new clsShoeValue();
-            //Bollen variable to store the results of the validation
+            //Boolen variable to store the results of the validation
             Boolean Found = false;
             //boolen variable to record if data is OK (assume it is)
             Boolean OK = true;

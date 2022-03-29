@@ -122,7 +122,7 @@ namespace ClassLibrary
                 mReleaseDate = Convert.ToDateTime(DB.DataTable.Rows[0]["ReleaseDate"]);
                 mRetailPrice = Convert.ToString(DB.DataTable.Rows[0]["RetailPrice"]);
                 mResalePrice = Convert.ToString(DB.DataTable.Rows[0]["ResalePrice"]);
-                mCatergory = Convert.ToString(DB.DataTable.Rows[0]["Catergory"]);
+                mCatergory = Convert.ToString(DB.DataTable.Rows[0]["Catergory "]);
                 mStock = Convert.ToBoolean(DB.DataTable.Rows[0]["Stock"]);
                 mShoeID = Convert.ToInt32(DB.DataTable.Rows[0]["ShoeID"]);
                 //return that everything worked OK
