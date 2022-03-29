@@ -145,5 +145,28 @@ namespace ClassLibrary
 
             }
         }
+
+            //function for the public validation method
+            public string Valid(string customerforename,string customersurname,string customerdob,string customeremail,string customertel)
+            {
+                //create a string variable to store the error
+                String Error = "";
+                //if the CustomerForename is blank
+                if (customerforename.Length == 0 )
+                {
+                    //record the error
+                    Error = Error + "The Customer Forename may not be blank :";
+                }
+                //if the CustomerForename is greater than 6 characters
+                if (CustomerForename.Length > 6)
+                {
+                    //RECORD THE ERROR
+                    Error = Error + "The CustomerID must be less than 6 characters : ";
+                }
+
+                //return any error messages
+                return Error;
+            }
+
     }
 }
