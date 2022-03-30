@@ -35,7 +35,7 @@
             <asp:CheckBox ID="chkStock" runat="server" Text="Stock" />
             <br />
             <br />
-            <asp:Label ID="IblError" runat="server"></asp:Label>
+            <asp:Label ID="lblError" runat="server"></asp:Label>
             <br />
             <br />
             <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" style="height: 26px" />
