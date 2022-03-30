@@ -570,7 +570,7 @@ namespace Testing4
             //ivoke the method
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
 
         }
 
@@ -587,12 +587,12 @@ namespace Testing4
             //create some test data to pass to the method 
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
 
         }
 
         [TestMethod]
-        public void ResalePricePlussOne()
+        public void ResalePricePlusOne()
 
         {
             //ceate an isurance of the class we want to create
@@ -604,7 +604,7 @@ namespace Testing4
             //create some test data to pass to the method 
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
 
         }
 
@@ -621,7 +621,7 @@ namespace Testing4
             //create some test data to pass to the method 
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
 
         }
 
@@ -638,7 +638,7 @@ namespace Testing4
             //create some test data to pass to the method 
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
 
         }
 
@@ -674,7 +674,7 @@ namespace Testing4
             //create some test data to pass to the method 
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
 
         }
 
@@ -692,7 +692,7 @@ namespace Testing4
             //create some test data to pass to the method 
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -708,7 +708,7 @@ namespace Testing4
             //create some test data to pass to the method 
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -724,7 +724,7 @@ namespace Testing4
             //create some test data to pass to the method 
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -741,7 +741,7 @@ namespace Testing4
             //create some test data to pass to the method 
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -758,7 +758,7 @@ namespace Testing4
             //create some test data to pass to the method 
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
