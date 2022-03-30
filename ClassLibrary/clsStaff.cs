@@ -114,10 +114,10 @@ namespace ClassLibrary
             if (DB.Count == 1)
             {
                 mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]); 
-                mCurrentlyWorking = Convert.ToInt32(DB.DataTable.Rows[0]["Test Name"]);
-                mPosition = Convert.ToString(DB.DataTable.Rows[0]["Test Position"]);
+                mCurrentlyWorking = Convert.ToBoolean(DB.DataTable.Rows[0]["CurrentlyWorking"]);
+                mPosition = Convert.ToString(DB.DataTable.Rows[0]["Position"]);
                 mDateJoined = Convert.ToDateTime(DB.DataTable.Rows[0]["DateJoined"]);
-                mStaffName = Convert.ToString(DB.DataTable.Rows[0]["Test Name"]);
+                mStaffName = Convert.ToString(DB.DataTable.Rows[0]["StaffName"]);
                 mStaffTel = Convert.ToInt32(DB.DataTable.Rows[0]["StaffTel"]);
                 mStaffSalary = Convert.ToInt32(DB.DataTable.Rows[0]["StaffSalary"]);
                 return true;
