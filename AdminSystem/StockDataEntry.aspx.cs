@@ -19,27 +19,56 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsStock AStock = new clsStock();
 
         //capture the shoe id
-        AStock.ShoeID = Convert.ToInt32(txtShoeID.Text);
+        string ShoeID = txtShoeID.Text;
 
         //capture the shoe description
-        AStock.ShoeDescription = txtShoeDesc.Text;
+        string ShoeDesc = txtShoeDesc.Text;
 
         //capture the shoe colour
-        AStock.ShoeColour = txtShoeColour.Text;
+        string ShoeColour = txtShoeColour.Text;
 
         //capture the shoe quantity
-        AStock.Quantity = Convert.ToInt32(txtQuantity.Text);
+        string Quantity = txtQuantity.Text;
 
         //capture the shoe release date
-        AStock.InitialReleaseDate = Convert.ToDateTime(txtReleaseDate.Text);
+        string InitialReleaseDate = txtReleaseDate.Text;
 
-        //capture the shoe availability
-        AStock.Availability = Convert.ToBoolean(chkAvailability.Checked);
+        //variable to store any error messages
+        string Error = "";
 
-        //store the stock in the session object
-        Session["AStock"] = AStock;
-        //navigate to the viewer page
-        Response.Redirect("StockViewer.aspx");
+        //validate the data
+        Error = AStock.Valid(ShoeDesc, ShoeColour, Quantity, InitialReleaseDate);
+
+        if (Error == "")
+        {
+            //capture the shoe id
+            AStock.ShoeID = Convert.ToInt32(txtShoeID.Text);
+
+            //capture the shoe description
+            AStock.ShoeDescription = txtShoeDesc.Text;
+
+            //capture the shoe colour
+            AStock.ShoeColour = txtShoeColour.Text;
+
+            //capture the shoe quantity
+            AStock.Quantity = Convert.ToInt32(txtQuantity.Text);
+
+            //capture the shoe release date
+            AStock.InitialReleaseDate = Convert.ToDateTime(txtReleaseDate.Text);
+
+            //capture the shoe availability
+            AStock.Availability = Convert.ToBoolean(chkAvailability.Checked);
+
+            //store the stock in the session object
+            Session["AStock"] = AStock;
+            //navigate to the viewer page
+            Response.Redirect("StockViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
@@ -67,10 +96,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
         }
         else
         {
-            txtShoeDesc.Text = "--";
-            txtShoeColour.Text = "--";
-            txtQuantity.Text = "--";
-            txtReleaseDate.Text = "--";
+            txtShoeDesc.Text = "";
+            txtShoeColour.Text = "";
+            txtQuantity.Text = "";
+            txtReleaseDate.Text = "";
             chkAvailability.Checked = AStock.Availability;
             lblError.Text = "Error: No stock has been found with the Shoe ID " + ShoeID;
         }

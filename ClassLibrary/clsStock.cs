@@ -135,42 +135,42 @@ namespace ClassLibrary
             if (ShoeDesc.Length == 0)
             {
                 //record the error
-                Error = Error + "The shoe description may not be blank: ";
+                Error = Error + "The shoe description may not be blank\n";
             }
 
             //if the shoe desc is too long
             if (ShoeDesc.Length > 50)
             {
                 //record the error
-                Error = Error + "The shoe description must be less than 50 characters: ";
+                Error = Error + "The shoe description must be less than 50 characters\n";
             }
 
             //is the shoe colour blank
             if (ShoeColour.Length == 0)
             {
                 //record the error
-                Error = Error + "The shoe colour may not be blank: ";
+                Error = Error + "The shoe colour may not be blank\n";
             }
 
             //if the shoe colour is too long
             if (ShoeColour.Length > 50)
             {
                 //record the error
-                Error = Error + "The shoe colour must be less than 50 characters: ";
+                Error = Error + "The shoe colour must be less than 50 characters\n";
             }
 
             //is the quantity blank
             if (Quantity.Length == 0)
             {
                 //record the error
-                Error = Error + "The quantity may not be blank: ";
+                Error = Error + "The quantity may not be blank\n";
             }
 
             //if the quantity is greater than 32 characters
             if (Quantity.Length > 32)
             {
                 //record the error
-                Error = Error + "The quantity may not be over 32 characters: ";
+                Error = Error + "The quantity may not be over 32 characters\n";
             }
 
             try
@@ -180,7 +180,7 @@ namespace ClassLibrary
                 if (DateTemp < DateTime.Now.Date)
                 {
                     //record the error
-                    Error = Error + "The date cannot be in the past: ";
+                    Error = Error + "The date cannot be in the past\n";
                 }
 
                 //check to see if the date is greater than todays date
@@ -188,13 +188,13 @@ namespace ClassLibrary
                 if (DateTemp > DateTime.Now.Date)
                 {
                     //record the error
-                    Error = Error + "The date cannot be in the future: ";
+                    Error = Error + "The date cannot be in the future\n";
                 }
             }
             catch
             {
                 //record the error
-                Error = Error + "The date is not a valid date: ";
+                Error = Error + "The date is not a valid date\n";
             }
             
             //return any error messages
