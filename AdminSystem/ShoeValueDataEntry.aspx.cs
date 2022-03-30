@@ -23,13 +23,56 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsShoeValue
         clsShoeValue AnShoeValue = new clsShoeValue();
-        //capture the Shoe
-        AnShoeValue.ShoeID = Convert.ToInt32(txtShoeID.Text);
-        //store the shoevalue in the session object
-        Session["AnShoeValue"] = AnShoeValue;
-        //naviagte to viewer page
-        Response.Redirect("ShoeValueViewer.aspx");
+        //capture ShoeID
+        string ShoeID = txtShoeID.Text;
+        //capture ResalePrice
+        string RetailPrice = txtRetailPrice.Text;
+        //capture ResalePrice
+        string ResalePrice = txtResalePrice.Text;
+        //capture  Catergory
+        string Catergory = txtCatergory.Text;
+        //capture ReleaseDate 
+        string ReleaseDate = txtReleaseDate.Text;
+        //variable the data 
+        String Error = "";
+        Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+        if (Error == "")
+        {
+
+            //capture the shoe id
+            AnShoeValue.ShoeID = Convert.ToInt32(txtShoeID.Text);
+
+            //capture the shoe description
+            AnShoeValue.RetailPrice = txtRetailPrice.Text;
+
+            //capture the shoe colour
+            AnShoeValue.ResalePrice = txtResalePrice.Text;
+
+            //capture the shoe quantity
+            AnShoeValue.Catergory = txtCatergory.Text;
+
+            //capture the shoe release date
+            AnShoeValue.ReleaseDate = Convert.ToDateTime(txtReleaseDate.Text);
+
+            //capture the shoe availability
+            AnShoeValue.Stock = Convert.ToBoolean(chkStock.Checked);
+
+            //store the stock in the session object
+            Session["AShoeValue"] = AnShoeValue;
+            //navigate to the viewer page
+            Response.Redirect("ShoeValueViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
+  
+
+
+
     }
+
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
@@ -38,7 +81,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //variable to store the primary key 
         Int32 ShoeID;
         //variable to store the result of the find operation
-        Boolean Found=false;
+        Boolean Found = false;
         //get the primary key entered by the user
         ShoeID = Convert.ToInt32(txtShoeID.Text);
         //find the record
@@ -53,10 +96,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtReleaseDate.Text = AnShoeVlaue.ReleaseDate.ToString();
             chkStock.Text = AnShoeVlaue.Stock.ToString();
 
-}
-
-
-
+        }
 
     }
 }
