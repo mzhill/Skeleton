@@ -215,9 +215,6 @@ namespace ClassLibrary
                 Error = Error + "The street must be less than 50 characters : ";
             }
 
-
-
-
             //return any error messages
             return Error;
         
