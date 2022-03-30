@@ -97,7 +97,36 @@ namespace ClassLibrary
 
         public bool Find(int staffID)
         {
+            mStaffID = 5;
+            mCurrentlyWorking = true;
+            mPosition = "Test Position";
+            mDateJoined = Convert.ToDateTime("16/09/2015");
+            mStaffName = "Test Name";
+            mStaffTel = 5;
+            mStaffSalary = 5; 
             return true;
+        }
+        public bool Find(int staffID)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@StaffID", staffID);
+            DB.Execute("sproc_tblStaff_FilterByStaffID");
+            if (DB.Count == 1)
+            {
+                mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]); 
+                mCurrentlyWorking = Convert.ToInt32(DB.DataTable.Rows[0]["Test Name"]);
+                mPosition = Convert.ToString(DB.DataTable.Rows[0]["Test Position"]);
+                mDateJoined = Convert.ToDateTime(DB.DataTable.Rows[0]["DateJoined"]);
+                mStaffName = Convert.ToString(DB.DataTable.Rows[0]["Test Name"]);
+                mStaffTel = Convert.ToInt32(DB.DataTable.Rows[0]["StaffTel"]);
+                mStaffSalary = Convert.ToInt32(DB.DataTable.Rows[0]["StaffSalary"]);
+                return true;
+             
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
