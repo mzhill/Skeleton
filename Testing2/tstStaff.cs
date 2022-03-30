@@ -96,6 +96,86 @@ namespace Testing2
             }
             Assert.IsTrue(OK);
         }
+        public void TestCurrentlyWorkingFound()
+        {
+            clsStaff AStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 5;
+            Found = AStaff.Find(StaffID);
+            if (AStaff.CurrentlyWorking != true )
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        public void TestPositionFound()
+        {
+            clsStaff AStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 5;
+            Found = AStaff.Find(StaffID);
+            if (AStaff.Position != "Test Position")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestDateJoinedFound()
+        {
+            clsStaff AStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 5;
+            Found = AStaff.Find(StaffID);
+            if (AStaff.DateJoined != Convert.ToDateTime("16/09/2015");
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestStaffNameFound()
+        {
+            clsStaff AStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 5;
+            Found = AStaff.Find(StaffID);
+            if (AStaff.StaffName!= "Test Name");
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        public void TestStaffTelFound()
+        {
+            clsStaff AStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 5;
+            Found = AStaff.Find(StaffID);
+            if (AStaff.StaffTel != 5)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        public void TestStaffSalaryFound()
+        {
+            clsStaff AStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 5;
+            Found = AStaff.Find(StaffID);
+            if (AStaff.StaffSalary != 5)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
 
 
     }
