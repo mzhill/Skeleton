@@ -150,6 +150,8 @@ namespace ClassLibrary
         {
             //create a string variable to store the error
             String Error = "";
+            //create a tempory variable to store date values
+            DateTime DateTemp;
             //if the RetailPrice is blank
             if (RetailPrice.Length == 0)
             {
@@ -163,6 +165,23 @@ namespace ClassLibrary
                 Error = Error + "The Retail Price must be less than 6 characters : ";
 
             }
+            //copy the dateAdded value to the DateTemp variable
+            DateTemp = Convert.ToDateTime(ReleaseDate);
+            if (DateTemp < DateTime.Now.Date)
+            {
+
+                //record the error
+                Error = Error + "The date cannot be in the past : ";
+            }
+
+            //check to see if the date greater than today's date
+            if (DateTemp>DateTemp.Now.Date)
+
+            {
+                //record the error
+                Error = Error + "The date cannot be in the Future : ";
+            }
+        
 
             //return any error messages
             return Error;
