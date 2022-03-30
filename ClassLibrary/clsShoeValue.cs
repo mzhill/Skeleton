@@ -165,23 +165,58 @@ namespace ClassLibrary
                 Error = Error + "The Retail Price must be less than 6 characters : ";
 
             }
-            //copy the dateAdded value to the DateTemp variable
-            DateTemp = Convert.ToDateTime(ReleaseDate);
-            if (DateTemp < DateTime.Now.Date)
+            try
             {
 
-                //record the error
-                Error = Error + "The date cannot be in the past : ";
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(ReleaseDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+
+                //check to see if the date greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the Future : ";
+                }
             }
-
-            //check to see if the date greater than today's date
-            if (DateTemp>DateTemp.Now.Date)
-
+            catch
             {
                 //record the error
-                Error = Error + "The date cannot be in the Future : ";
+                Error = Error = "The date was not a valid date : ";
             }
-        
+            //is the post code blank
+            if (ResalePrice.Length == 0)
+            {
+                //record the error
+                Error = Error + "The post code may not be blank : ";
+            }
+            //if the post code is too long
+            if (ResalePrice.Length > 9)
+            {
+                //record the error
+                Error = Error + "The post code must be less than 9 characters : ";
+            }
+            //is the street blank
+            if (Catergory.Length == 0)
+            {
+                //record the error
+                Error = Error + "The street may not be blank : ";
+            }
+            //if the street is too long
+            if (Catergory.Length > 50)
+            {
+                //record the error
+                Error = Error + "The street must be less than 50 characters : ";
+            }
+
+
+
 
             //return any error messages
             return Error;
