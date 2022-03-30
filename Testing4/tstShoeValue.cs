@@ -323,7 +323,7 @@ namespace Testing4
             //invoke the method
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
 
 
         }
@@ -340,7 +340,7 @@ namespace Testing4
             //invoke the method
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
 
         }
         [TestMethod]
@@ -356,7 +356,7 @@ namespace Testing4
             //invoke the method
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
 
 
         }
@@ -373,7 +373,7 @@ namespace Testing4
             //invoke the method
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
 
         }
         [TestMethod]
@@ -389,7 +389,7 @@ namespace Testing4
             //invoke the method
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
 
         }
         [TestMethod]
@@ -405,7 +405,7 @@ namespace Testing4
             //invoke the method
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
 
         }
 
@@ -442,7 +442,7 @@ namespace Testing4
             //change the date to whatever the date is less 100 years
             TestDate = TestDate.AddYears(-100);
             //convert the date variable to a string variable
-            string DateAdded = TestDate.ToString();
+            string ReleaseDate = TestDate.ToString();
             //invoke the method
             Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
             //test to see that the result is correct
@@ -451,6 +451,110 @@ namespace Testing4
 
         }
 
-    }
+        [TestMethod]
+        public void ReleaseDateMinLessOne()
 
+        {
+            //ceate an isurance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //string variable to story any error message
+            string Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totdays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-1);
+            //convert the date variable to a string variable
+            string ReleaseDate = TestDate.ToString();
+            //invoke the method
+            Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void ReleaseDateMin()
+
+        {
+            //ceate an isurance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //string variable to story any error message
+            string Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totdays date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            string ReleaseDate = TestDate.ToString();
+            //invoke the method
+            Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void ReleaseDateMinPlusOne()
+
+        {
+            //ceate an isurance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //string variable to story any error message
+            string Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totdays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(1);
+            //convert the date variable to a string variable
+            string ReleaseDate = TestDate.ToString();
+            //invoke the method
+            Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ReleaseDateExtremeMax()
+
+        {
+            //ceate an isurance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //string variable to story any error message
+            string Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totdays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(100);
+            //convert the date variable to a string variable
+            string ReleaseDate = TestDate.ToString();
+            //invoke the method
+            Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void ReleaseDateInvalidData()
+
+        {
+            //ceate an isurance of the class we want to create
+            clsShoeValue AnShoeValue = new clsShoeValue();
+            //string variable to story any error message
+            string Error = "";
+            //set the ReleaseDate to a non date value
+            String ReleaseDate = "this is not a date!";
+            //invoke the method
+            Error = AnShoeValue.Valid(ReleaseDate, RetailPrice, ResalePrice, Catergory);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+        }
+    }
 }
