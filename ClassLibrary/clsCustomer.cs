@@ -18,7 +18,7 @@ namespace ClassLibrary
                 mCustomerMembership = value;
             }
         }
-        
+
 
         private DateTime mCustomerDOB;
         //CustomerDOB public property
@@ -146,27 +146,97 @@ namespace ClassLibrary
             }
         }
 
-            //function for the public validation method
-            public string Valid(string customerforename,string customersurname,string customerdob,string customeremail,string customertel)
-            {
-                //create a string variable to store the error
-                String Error = "";
-                //if the CustomerForename is blank
-                if (customerforename.Length == 0 )
-                {
-                    //record the error
-                    Error = Error + "The Customer Forename may not be blank :";
-                }
-                //if the CustomerForename is greater than 6 characters
-                if (CustomerForename.Length > 6)
-                {
-                    //RECORD THE ERROR
-                    Error = Error + "The CustomerID must be less than 6 characters : ";
-                }
+        //function for the public validation method
+        public string Valid(string CustomerForename, string CustomerSurname,string CustomerDOB, string CustomerEmail, string CustomerTel)
+        {
+            //create a string variable to store the error
+            String Error = "";
 
-                //return any error messages
-                return Error;
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+
+            //if the CustomerForename is blank
+            if (CustomerForename.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Customer Forename may not be blank :";
+            }
+            //if the CustomerForename is greater than 6 characters
+            if (CustomerForename.Length > 6)
+            {
+                //RECORD THE ERROR
+                Error = Error + "The CustomerID must be less than 6 characters : ";
             }
 
+            try
+            {
+                //copy the CustomerDOB value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(CustomerDOB);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error 
+                    Error = Error + "The date cannot be in the past";
+                }
+
+                //check to see if the date is greater than todays date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not valid : ";
+            }
+
+            //if the surname is blank
+            if (CustomerSurname.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Surname may not be blank : ";
+            }
+            
+            //if the surname is too long
+            if (CustomerSurname.Length > 9)
+            {
+                //record the error
+                Error = Error + "The surname must be less than 9 characters";
+            }
+
+            //is the Email Blank
+            if (CustomerEmail.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Email may not be blank : ";
+            }
+
+            //if the email is too long
+            if  (CustomerEmail.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Email must be less than 50 Characters : ";
+            }
+
+            //is the Tel blank
+            if (CustomerTel.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Surname may not be blank : ";
+            }
+
+            // if the Tel is too long 
+            if (CustomerTel.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Tel must be less than 50 characters : ";
+            }
+
+            //return any error messages
+            return Error;
+
+
+        }
     }
 }
