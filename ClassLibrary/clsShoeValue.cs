@@ -70,9 +70,6 @@ namespace ClassLibrary
             }
         }
 
-
-        //private date added data member
-        private DateTime mDateAdded;
         //publix propertfor date added
         public DateTime ReleaseDate
         {

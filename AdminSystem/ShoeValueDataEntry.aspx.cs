@@ -87,7 +87,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //find the record
         Found = AnShoeVlaue.Find(ShoeID);
         //if found
-        if (Found == true) ;
+        if (Found == true)
         {
             //display the valyes of the properties in the form
             txtRetailPrice.Text = AnShoeVlaue.ResalePrice;

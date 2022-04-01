@@ -106,7 +106,7 @@ namespace ClassLibrary
             mStaffSalary = 5; 
             return true;
         }
-        public bool Find(int staffID)
+        /*public bool Find(int staffID)
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@StaffID", staffID);
@@ -127,6 +127,6 @@ namespace ClassLibrary
             {
                 return false;
             }
-        }
+        }*/
     }
 }

@@ -130,7 +130,7 @@ namespace Testing2
             Boolean OK = true;
             Int32 StaffID = 5;
             Found = AStaff.Find(StaffID);
-            if (AStaff.DateJoined != Convert.ToDateTime("16/09/2015");
+            if (AStaff.DateJoined != Convert.ToDateTime("16/09/2015"))
             {
                 OK = false;
             }
@@ -144,7 +144,7 @@ namespace Testing2
             Boolean OK = true;
             Int32 StaffID = 5;
             Found = AStaff.Find(StaffID);
-            if (AStaff.StaffName!= "Test Name");
+            if (AStaff.StaffName!= "Test Name")
             {
                 OK = false;
             }
