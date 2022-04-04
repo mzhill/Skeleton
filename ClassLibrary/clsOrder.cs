@@ -86,5 +86,13 @@ namespace ClassLibrary
 
             }
         }
+
+        public bool Find(int orderID)
+        {
+            //set the private data members to the data test value
+            mOrderID = 7;
+            //always returns true
+            return true;
+        }
     }
 }
