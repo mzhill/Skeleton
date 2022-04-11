@@ -5,6 +5,11 @@ namespace ClassLibrary
 {
     public class clsStockCollection
     {
+        //private data member for the list
+        List<clsStock> mStockList = new List<clsStock>();
+        //private data member thisStock
+        clsStock mThisStock = new clsStock();
+
         //constructor for the class
         public clsStockCollection()
         {
@@ -37,9 +42,6 @@ namespace ClassLibrary
             }
         }
 
-        //private data member for the list
-        List<clsStock> mStockList = new List<clsStock>();
-
         //public property for the address list
         public List<clsStock> StockList
         {
@@ -68,7 +70,33 @@ namespace ClassLibrary
             }
         }
 
-        public clsStock ThisStock { get; set; }
+        public clsStock ThisStock
+        {
+            get
+            {
+                //return the private
+                return mThisStock;
+            }
+            set
+            {
+                //set the private data
+                mThisStock = value;
+            }
+        }
 
+        public int Add()
+        {
+            //adds a new record to the database based on the values of this mThisStock
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the primary key value of the new record
+            DB.AddParameter("ShoeDescription", mThisStock.ShoeDescription);
+            DB.AddParameter("ShoeColour", mThisStock.ShoeColour);
+            DB.AddParameter("Quantity", mThisStock.Quantity);
+            DB.AddParameter("Initial Release Date", mThisStock.InitialReleaseDate);
+            DB.AddParameter("Availability", mThisStock.Availability);
+            //execute the query returning the primary key value
+            return mThisStock.ShoeID;
+        }
     }
 }

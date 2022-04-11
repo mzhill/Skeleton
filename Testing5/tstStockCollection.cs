@@ -88,5 +88,33 @@ namespace Testing5
             //test to see that the two values are the same
             Assert.AreEqual(AllStock.Count, TestList.Count);
         }
+
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStockCollection AllStock = new clsStockCollection();
+            //create some test data to assign to the property
+            clsStock TestItem = new clsStock();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.ShoeID = 1;
+            TestItem.ShoeDescription = "Air Force 1";
+            TestItem.ShoeColour = "White";
+            TestItem.Quantity = 10;
+            TestItem.InitialReleaseDate = DateTime.Now.Date;
+            TestItem.Availability = true;
+            //set ThisStock to the test data
+            AllStock.ThisStock = TestItem;
+            //add the record
+            PrimaryKey = AllStock.Add();
+            //set the primary key of the test data
+            TestItem.ShoeID = PrimaryKey;
+            //find the record
+            AllStock.ThisStock.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllStock.ThisStock, TestItem);
+        }
     }
 }

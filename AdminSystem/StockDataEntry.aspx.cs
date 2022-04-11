@@ -59,10 +59,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //capture the shoe availability
             AStock.Availability = Convert.ToBoolean(chkAvailability.Checked);
 
-            //store the stock in the session object
-            Session["AStock"] = AStock;
-            //navigate to the viewer page
-            Response.Redirect("StockViewer.aspx");
+            //create a new instance of the stock collection
+            clsStockCollection StockList = new clsStockCollection();
+            //set the ThisStock property
+            StockList.ThisStock = AStock;
+            //add the new record
+            StockList.Add();
+
+            //redirect back to the listpage
+            Response.Redirect("StockList.aspx");
         }
         else
         {
