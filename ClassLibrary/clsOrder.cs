@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 namespace ClassLibrary
 {
     public class clsOrder
@@ -10,23 +13,38 @@ namespace ClassLibrary
         private DateTime mOrderDate;
         private Int32 mQuantity;
 
-
-
-        public clsOrder()
+        public bool NextDayDelivery
         {
+            get
+            {
+                return mNextDayDelivery;
+            }
+            set
+            {
+                mNextDayDelivery = value;
+            }
         }
 
+        public DateTime OrderDate
+        {
+            get
+            {
+                return mOrderDate;
+            }
+            set
+            {
+                mOrderDate = value;
+            }
+        }
 
         public Int32 OrderID
         {
             get
             {
-                //this line of code sends data out of the property
                 return mOrderID;
             }
             set
             {
-                //this line of code allows data into the property
                 mOrderID = value;
             }
         }
@@ -35,64 +53,38 @@ namespace ClassLibrary
         {
             get
             {
-                //this line of code sends data out of the property
                 return mCustomerUsername;
             }
             set
             {
-                //this line of code allows data into the property
                 mCustomerUsername = value;
             }
         }
 
-        public bool NextDayDelivery
-        {
-            get
-            {
-                //this line of code sends data out of the property
-                return mNextDayDelivery;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mNextDayDelivery = value;
-            }
-        }
-        public DateTime OrderDate
-        {
-            get
-            {
-                //return the private data 
-                return mOrderDate;
-            }
-            set
-            {
-                //
-                mOrderDate = value;
-
-            }
-        }
         public Int32 Quantity
         {
             get
             {
-                //this line of code sends data out of the property 
                 return mQuantity;
             }
             set
             {
-                //this line of code allows data into the property
                 mQuantity = value;
-
             }
         }
 
-        public bool Find(int orderID)
+
+        public bool Find(int OrderID)
         {
             //set the private data members to the data test value
             mOrderID = 7;
-            //always returns true
+            mCustomerUsername = "Test name";
+            mNextDayDelivery = true;
+            mOrderDate = Convert.ToDateTime("16/09/2018");
+            mQuantity = 5;
+            //always return true
             return true;
         }
+
     }
 }
