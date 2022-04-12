@@ -8,9 +8,37 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 ShoeID;
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of the stock to be processed
+        ShoeID = Convert.ToInt32(Session["ShoeID"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record
+            if (ShoeID != -1)
+            {
+                //display the current data for the record
+                DisplayStock();
+            }
+        }
+    }
 
+    private void DisplayStock()
+    {
+        //create a new instance of the stock collection
+        clsStockCollection StockList = new clsStockCollection();
+        //find the record to update
+        StockList.ThisStock.Find(ShoeID);
+        //display the data for this record
+        txtShoeID.Text = StockList.ThisStock.ShoeID.ToString();
+        txtShoeDesc.Text = StockList.ThisStock.ShoeDescription;
+        txtShoeColour.Text = StockList.ThisStock.ShoeColour;
+        txtQuantity.Text = StockList.ThisStock.Quantity.ToString();
+        txtReleaseDate.Text = StockList.ThisStock.InitialReleaseDate.ToString();
+        chkAvailability.Checked = StockList.ThisStock.Availability;
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -61,10 +89,26 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
             //create a new instance of the stock collection
             clsStockCollection StockList = new clsStockCollection();
-            //set the ThisStock property
-            StockList.ThisStock = AStock;
-            //add the new record
-            StockList.Add();
+
+            //if this is a new record i.e. ShoeID = -1 then add the data
+            if (Convert.ToInt32(txtShoeID.Text) == -1)
+            {
+                //set the ThisStock property
+                StockList.ThisStock = AStock;
+                //add the new record
+                StockList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update
+                StockList.ThisStock.Find(Convert.ToInt32(txtShoeID.Text));
+                //set the ThisStock property
+                StockList.ThisStock = AStock;
+                //update the record
+                StockList.Update();
+            }
+            
 
             //redirect back to the listpage
             Response.Redirect("StockList.aspx");

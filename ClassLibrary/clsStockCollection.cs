@@ -89,7 +89,7 @@ namespace ClassLibrary
             //adds a new record to the database based on the values of this mThisStock
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
-            //set the primary key value of the new record
+            //set the parameters for the stored procedure
             DB.AddParameter("ShoeDescription", mThisStock.ShoeDescription);
             DB.AddParameter("ShoeColour", mThisStock.ShoeColour);
             DB.AddParameter("Quantity", mThisStock.Quantity);
@@ -97,6 +97,22 @@ namespace ClassLibrary
             DB.AddParameter("Availability", mThisStock.Availability);
             //execute the query returning the primary key value
             return mThisStock.ShoeID;
+        }
+
+        public void Update()
+        {
+            //update an existing record based on the values of thisStock
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@ShoeID", mThisStock.ShoeID);
+            DB.AddParameter("@ShoeDescription", mThisStock.ShoeDescription);
+            DB.AddParameter("@ShoeColour", mThisStock.ShoeColour);
+            DB.AddParameter("@Quantity", mThisStock.Quantity);
+            DB.AddParameter("@Initial Release Date", mThisStock.InitialReleaseDate);
+            DB.AddParameter("@Availability", mThisStock.Availability);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStock_Update");
         }
     }
 }
