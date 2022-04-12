@@ -5,6 +5,11 @@ namespace ClassLibrary
 {
     public class clsCustomerCollection
     {
+        //private data member for the list
+        List<clsCustomer> mCustomerList = new List<clsCustomer>();
+        //private data member thiscustomer
+        clsCustomer mThisCustomer = new clsCustomer();
+
         //constructor for the class
         public clsCustomerCollection()
         {
@@ -39,9 +44,6 @@ namespace ClassLibrary
         }
 
 
-        //private data member for the list
-        List<clsCustomer> mCustomerList = new List<clsCustomer>();
-
         //public property for the address list
         public List <clsCustomer> CustomerList
         {
@@ -71,6 +73,28 @@ namespace ClassLibrary
             }
         }
          
-         public clsCustomer ThisCustomer { get; set; }
+        //public property for thiscustomer
+        public clsCustomer ThisCustomer
+        {
+            get
+            {
+                //return the private data
+                return mThisCustomer;
+            }
+            set
+            {
+                //set the private data
+                mThisCustomer = value;
+            }
+        }
+
+        public int Add()
+        {
+            //adds a new record to the database based on the values of mthisCustomer
+            //set the primary key value of the new record
+            mThisCustomer.CustomerID = 1;
+            //return the primary key of the new record
+            return mThisCustomer.CustomerID;
+        }
     }
 }
