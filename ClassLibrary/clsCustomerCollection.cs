@@ -90,11 +90,45 @@ namespace ClassLibrary
 
         public int Add()
         {
-            //adds a new record to the database based on the values of mthisCustomer
-            //set the primary key value of the new record
-            mThisCustomer.CustomerID = 1;
-            //return the primary key of the new record
-            return mThisCustomer.CustomerID;
+            //adds a new record to the database based on the values of this mThisCustomer
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@CustomerForename", mThisCustomer.CustomerForename);
+            DB.AddParameter("@CustomerSurname", mThisCustomer.CustomerSurname);
+            DB.AddParameter("@CustomerEmail", mThisCustomer.CustomerEmail);
+            DB.AddParameter("@CustomerTel", mThisCustomer.CustomerTel);
+            DB.AddParameter("@CustomerMembership", mThisCustomer.CustomerMembership);
+            DB.AddParameter("@CustomerDOB", mThisCustomer.CustomerDOB);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblCustomer_Insert");
+        }
+
+        public void Update()
+        {
+            //update an existing record based on the values of thiscustomer
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@CustomerForename", mThisCustomer.CustomerForename);
+            DB.AddParameter("@CustomerSurname", mThisCustomer.CustomerSurname);
+            DB.AddParameter("@CustomerEmail", mThisCustomer.CustomerEmail);
+            DB.AddParameter("@CustomerTel", mThisCustomer.CustomerTel);
+            DB.AddParameter("@CustomerMembership", mThisCustomer.CustomerMembership);
+            DB.AddParameter("@CustomerDOB", mThisCustomer.CustomerDOB);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_Update");
+        }
+
+        public void Delete()
+        {
+            //deletes the record pointed to by thisCustomer
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_Delete");
         }
     }
 }
