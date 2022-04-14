@@ -18,6 +18,13 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
 
     protected void BtnYes_Click(object sender, EventArgs e)
     {
-
+        //create a new instance of customer class
+        clsCustomerCollection Customer = new clsCustomerCollection();
+        //find the record to delete
+        Customer.ThisCustomer.Find(CustomerID);
+        //delete the record
+        Customer.Delete();
+        //redirect nack to the main page
+        Response.Redirect("CustomerList.aspx");
     }
 }
