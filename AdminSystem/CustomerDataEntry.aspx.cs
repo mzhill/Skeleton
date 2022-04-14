@@ -8,10 +8,43 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 CustomerID;
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of the customer to be processed
+        CustomerID = Convert.ToInt32(Session["CustomerID"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record
+            if (CustomerID != -1)
+            {
+                //display the current data for the record
+                DisplayCustomer();
+            }
+        }
 
     }
+
+    
+    private void DisplayCustomer()
+    {
+            //create an intance of the Customerdata
+            clsCustomerCollection Customerlist = new clsCustomerCollection();
+            //find the record to update
+            Customerlist.ThisCustomer.Find(CustomerID);
+            //display the data for this record
+            txtCustomerID.Text = Customerlist.ThisCustomer.CustomerID.ToString();
+            txtCustomerForename.Text = Customerlist.ThisCustomer.CustomerForename;
+            txtCustomerSurname.Text = Customerlist.ThisCustomer.CustomerSurname;
+            txtCustomerDOB.Text = Customerlist.ThisCustomer.CustomerDOB.ToString();
+            txtCustomerEmail.Text = Customerlist.ThisCustomer.CustomerEmail;
+            txtCustomerTel.Text = Customerlist.ThisCustomer.CustomerTel;
+            chkCustomerMembership.Text = Customerlist.ThisCustomer.CustomerMembership.ToString();
+
+    }
+      
 
     protected void bntOK_Click(object sender, EventArgs e)
     {
@@ -50,10 +83,30 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnCustomer.CustomerDOB = Convert.ToDateTime(txtCustomerTel.Text);
             //capture the customer memebership
             AnCustomer.CustomerMembership = Convert.ToBoolean(chkCustomerMembership.Checked);
-            //store the address in the session object
-            Session["AnCustomer"] = AnCustomer;
-            //navigate to the viewer page
-            Response.Redirect("CustomerViewer.aspx");
+            //create a new instance of the address collection
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
+
+            //if this is a new record i.e CustomerID = -1 the add the data
+            if (Convert.ToInt32(CustomerID) == -1)
+            {
+                //set the thisCustomer property
+                CustomerList.ThisCustomer = AnCustomer;
+                //add the new record
+                CustomerList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record
+                CustomerList.ThisCustomer.Find(Convert.ToInt32(CustomerID));
+                //set the thiscustomer property
+                CustomerList.ThisCustomer = AnCustomer;
+                //update the record
+                CustomerList.Update();
+            }
+            //redirect to the listpage
+            Response.Redirect("CustomerList.aspx");
+           
         }
         else
         {
