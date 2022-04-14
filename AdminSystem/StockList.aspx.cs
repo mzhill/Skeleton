@@ -79,4 +79,36 @@ public partial class _1_List : System.Web.UI.Page
             lblError.Text = "Please select a record to delete from the list";
         }
     }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        //create an instance of the Stock collection
+        clsStockCollection Stock = new clsStockCollection();
+        Stock.ReportByShoeColour(txtFilter.Text);
+        //set the data source to list of stock in the collection
+        lstStockList.DataSource = Stock.StockList;
+        //set the name of the primary key
+        lstStockList.DataValueField = "ShoeID";
+        //set the name of the field to display
+        lstStockList.DataTextField = "ShoeColour";
+        //bind the data to the list
+        lstStockList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        //create an instance of the Stock collection
+        clsStockCollection Stock = new clsStockCollection();
+        Stock.ReportByShoeColour("");
+        //clear any existing filter to tidy up the interface
+        txtFilter.Text = "";
+        //set the data source to list of stock in the collection
+        lstStockList.DataSource = Stock.StockList;
+        //set the name of the primary key
+        lstStockList.DataValueField = "ShoeID";
+        //set the name of the field to display
+        lstStockList.DataTextField = "ShoeColour";
+        //bind the data to the list
+        lstStockList.DataBind();
+    }
 }

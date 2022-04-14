@@ -187,5 +187,60 @@ namespace Testing5
             //test to see that the record was not found
             Assert.IsFalse(Found);
         }
+
+        [TestMethod]
+        public void ReportByShoeColourMethodOK()
+        {
+            //create an instance of the class containing unfiltered results
+            clsStockCollection AllStock = new clsStockCollection();
+            //create an instance of the filtered data
+            clsStockCollection FilteredStock = new clsStockCollection();
+            //apply a blank string (should return all records)
+            FilteredStock.ReportByShoeColour("");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllStock.Count, FilteredStock.Count);
+        }
+
+        [TestMethod]
+        public void ReportByShoeColourNoneFound()
+        {
+            //create an instance of the filtered data
+            clsStockCollection FilteredStock = new clsStockCollection();
+            //apply a blank string (should return all records)
+            FilteredStock.ReportByShoeColour("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+            //test to see that there are no records
+            Assert.AreEqual(0, FilteredStock.Count);
+        }
+
+        [TestMethod]
+        public void ReportByShoeColourTestDataFound()
+        {
+            //create an instance of the filtered data#
+            clsStockCollection FilteredStock = new clsStockCollection();
+            //var to store outcome
+            Boolean OK = true;
+            //apply a shoe colour that does not exist
+            FilteredStock.ReportByShoeColour("White");
+            //check that the correct number of records are found
+            if (FilteredStock.Count == 2)
+            {
+                //check that the first record is ID 4
+                if (FilteredStock.StockList[0].ShoeID != 4)
+                {
+                    OK = false;
+                }
+                //check that the first record is ID 5
+                if (FilteredStock.StockList[1].ShoeID != 5)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
+        }
     }
 }
