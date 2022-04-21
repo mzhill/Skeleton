@@ -85,7 +85,7 @@ namespace Testing3
             //Bollen variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 OrderID = 7;
+            Int32 OrderID = 23;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //test to see if the result is true
@@ -96,16 +96,16 @@ namespace Testing3
         {
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
-            //Bollen variable to store the results of the validation
+            //Boolean variable to store the results of the validation
             Boolean Found = false;
             //boolen variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 7;
+            Int32 OrderID = 23;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the address no 
-            if (AnOrder.OrderID != 7)
+            if (AnOrder.OrderID != 23)
             {
                 OK = false;
             }
@@ -122,7 +122,7 @@ namespace Testing3
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 7;
+            Int32 OrderID = 23;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
@@ -143,11 +143,11 @@ namespace Testing3
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 7;
+            Int32 OrderID = 23;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
-            if (AnOrder.CustomerUsername != ("Test name"))
+            if (AnOrder.CustomerUsername != ("Testname"))
             {
                 OK = false;
             }
@@ -164,7 +164,7 @@ namespace Testing3
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 7;
+            Int32 OrderID = 23;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
@@ -185,7 +185,7 @@ namespace Testing3
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 7;
+            Int32 OrderID = 23;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
