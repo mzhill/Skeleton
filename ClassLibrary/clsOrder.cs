@@ -83,7 +83,7 @@ namespace ClassLibrary
             //add the parameter for the shoe id to search for
             DB.AddParameter("@OrderID", OrderID);
             //execute the stored procedure
-            DB.Execute("sproc_tblOrderID_FilterByOrderID");
+            DB.Execute("sproc_tblOrder_FilterByOrderID");
             //if one record is found (there should be either one or zero)
             if (DB.Count == 1)
             {
