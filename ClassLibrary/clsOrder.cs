@@ -106,6 +106,72 @@ namespace ClassLibrary
             }
 
         }
+        //function for the public validation method
+        public string Valid(string CustomerUsername, string Quantity, string OrderDate)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+
+            //is the customer username blank
+            if (CustomerUsername.Length == 0)
+            {
+                //record the error
+                Error = Error + "The customer username may not be blank\n";
+            }
+
+            //if the customer username is too long
+            if (CustomerUsername.Length > 50)
+            {
+                //record the error
+                Error = Error + "The customer username must be less than 50 characters\n";
+            }
+
+
+            //is the quantity blank
+            if (Quantity.Length == 0)
+            {
+                //record the error
+                Error = Error + "The quantity may not be blank\n";
+            }
+
+            //if the quantity is greater than 32 characters
+            if (Quantity.Length > 32)
+            {
+                //record the error
+                Error = Error + "The quantity may not be over 32 characters\n";
+            }
+
+            try
+            {
+                //copy the order date value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(OrderDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past\n";
+                }
+
+                //check to see if the date is greater than todays date
+                DateTemp = Convert.ToDateTime(OrderDate);
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future\n";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date is not a valid date\n";
+            }
+
+            //return any error messages
+            return Error;
+        }
+
+
 
     }
 }
