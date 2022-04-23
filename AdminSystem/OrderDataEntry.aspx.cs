@@ -18,12 +18,54 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsOrder
         clsOrder AnOrder = new clsOrder();
-        //capture the orderID
-        AnOrder.OrderID = Convert.ToInt32(txtOrderID.Text);
-        //store the orderID in the session object
-        Session["AnOrder"] = AnOrder;
-        //navigate to the viewer page
-        Response.Redirect("OrderViewer.aspx");
+
+        //capture the order id
+        string OrderID = txtOrderID.Text;
+
+        //capture the customer username
+        string CustomerUsername = txtCustomerUsername.Text;
+
+
+        //capture the quantity
+        string Quantity = txtQuantity.Text;
+
+        //capture the order date
+        string OrderDate = txtOrderDate.Text;
+
+        //variable to store any error messages
+        string Error = "";
+
+        //validate the data
+        Error = AnOrder.Valid(CustomerUsername, Quantity, OrderDate);
+
+        if (Error == "")
+        {
+            //capture the order id
+            AnOrder.OrderID = Convert.ToInt32(txtOrderID.Text);
+
+            //capture the customer username
+            AnOrder.CustomerUsername = txtCustomerUsername.Text;
+
+
+            //capture the quantity
+            AnOrder.Quantity = Convert.ToInt32(txtQuantity.Text);
+
+            //capture the order date
+            AnOrder.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
+
+            //capture the next day delivery
+            AnOrder.NextDayDelivery = Convert.ToBoolean(chkNDD.Checked);
+
+            //store the order in the session object
+            Session["AnOrder"] = AnOrder;
+            //navigate to the viewer page
+            Response.Redirect("OrderViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void Button1_Click(object sender, EventArgs e)
