@@ -8,6 +8,7 @@ namespace Testing3
     [TestClass]
     public class tstOrderCollection
     {
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -41,18 +42,7 @@ namespace Testing3
             //test to see that that two values are the same
             Assert.AreEqual(AllOrders.OrderList, TestList);
         }
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsOrderCollection AllOrders = new clsOrderCollection();
-            //create some test data to assign to the property
-            Int32 SomeCount = 0;
-            //assign the data to the property
-            AllOrders.Count = SomeCount;
-            //test to see that the two values are the same
-            Assert.AreEqual(AllOrders.Count, SomeCount);
-        }
+        
         [TestMethod]
         public void ThisOrderPropertyOK()
         {
@@ -75,7 +65,7 @@ namespace Testing3
         public void ListAndCountOK()
         {
             //create an instance of the class we want to create
-            clsOrderCollection AllOrder = new clsOrderCollection();
+            clsOrderCollection AllOrders = new clsOrderCollection();
             //create some test data to assign to the property
             //in this case the data needs to be a list of objects
             List<clsOrder> TestList = new List<clsOrder>();
@@ -95,5 +85,6 @@ namespace Testing3
             //test to see that the two values are the same
             Assert.AreEqual(AllOrders.Count, TestList.Count);
         }
+        
     }
 }
