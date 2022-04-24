@@ -145,5 +145,57 @@ namespace Testing3
             //test to see ThisOrder matches the test data
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
         }
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create some test data to assign to the property
+            clsOrder TestItem = new clsOrder();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.OrderID = 1;
+            TestItem.CustomerUsername = "Testname";
+            TestItem.Quantity = 5;
+            TestItem.OrderDate = DateTime.Now.Date;
+            TestItem.NextDayDelivery = true;
+            //set ThisOrder to the test data
+            AllOrders.ThisOrder = TestItem;
+            //add the record
+            PrimaryKey = AllOrders.Add();
+            //set the primary key of the test data
+            TestItem.OrderID = PrimaryKey;
+            //find the record
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            //delete the record
+            AllOrders.Delete();
+            //now find the record
+            Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
+            //test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
+        [TestMethod]
+        public void ReportByCustomerUsernameMethodOK()
+        {
+            //create an instance of the class containing unfiltered results
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create an instance of the filtered data
+            clsOrderCollection FilteredOrder = new clsOrderCollection();
+            //apply a blank string (should return all records)
+            FilteredOrder.ReportByCustomerUsername("");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllOrders.Count, FilteredOrder.Count);
+        }
+        [TestMethod]
+        public void ReportByCustomerUsernameNoneFound()
+        {
+            //create an instance of the filtered data
+            clsOrderCollection FilteredOrder = new clsOrderCollection();
+            //apply a blank string (should return all records)
+            FilteredOrder.ReportByCustomerUsername("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+            //test to see that there are no records
+            Assert.AreEqual(0, FilteredOrder.Count);
+        }
     }
 }
