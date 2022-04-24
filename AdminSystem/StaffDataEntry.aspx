@@ -8,51 +8,45 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="height: 529px">
-            <asp:Label ID="lblStaffID" runat="server" Text="Staff ID"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtStaffID" runat="server"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnFind" runat="server" OnClick="Button1_Click" Text="Find" />
+        <div>
+            <asp:Label ID="lblStaffID" runat="server" Text="Staff ID:" width="119px"></asp:Label>
+            &nbsp;<asp:TextBox ID="txtStaffID" runat="server"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;<asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
             <br />
             <br />
-            <asp:Label ID="lblStaffName" runat="server" Text="Staff Name"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtStaffName" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lblStaffName" runat="server" Text="Staff Name:" width="119px"></asp:Label>
+            &nbsp;<asp:TextBox ID="txtStaffName" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Label ID="lblPosition" runat="server" Text="Position"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtPosition" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lblposition" runat="server" Text="position:" width="119px"></asp:Label>
+            &nbsp;<asp:TextBox ID="txtPosition" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Label ID="lblStaffTel" runat="server" Text="Staff Telephone"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtStaffTel" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lblstaffsalary" runat="server" Text="Staff Salary:" width="119px"></asp:Label>
+            &nbsp;<asp:TextBox ID="txtStaffSalary" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Label ID="lblDateJoined" runat="server" Text="Date Joined"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtDateJoined" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lblDateJoined" runat="server" Text="Date Joined:"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtDateJoined" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:CheckBox ID="chkCurrentlyWorking" runat="server" OnCheckedChanged="chkCurrentlyWorking_CheckedChanged" Text="   CurrentlyWorking" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
-            <br />
-            <asp:Label ID="lblStaffSalary" runat="server" Text="StaffSalary"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtStaffSalary" runat="server"></asp:TextBox>
+            <asp:CheckBox ID="chkCurrentlyWorking" runat="server" Text="CurrentlyWorking" TextAlign="Left" />
             <br />
             <br />
             <br />
             <asp:Label ID="lblError" runat="server"></asp:Label>
             <br />
             <br />
-&nbsp;&nbsp;&nbsp;
+            <br />
             <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+&nbsp;<asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+            <br />
         </div>
     </form>
 </body>
