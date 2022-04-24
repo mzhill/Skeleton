@@ -83,5 +83,33 @@ namespace ClassLibrary
                 mThisOrder = value;
             }
         }
+
+        public int Add()
+        {
+            //adds a new record to the database based on the values of this mThisOrder
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("CustomerUsername", mThisOrder.CustomerUsername);
+            DB.AddParameter("Quantity", mThisOrder.Quantity);
+            DB.AddParameter("Order Date", mThisOrder.OrderDate);
+            DB.AddParameter("Next Day Delivery", mThisOrder.NextDayDelivery);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblOrder_Insert");
+        }
+        public void Update()
+        {
+            //update an existing record based on the values of thisOrder
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@OrderID", mThisOrder.OrderID);
+            DB.AddParameter("@CustomerUsername", mThisOrder.CustomerUsername);
+            DB.AddParameter("@Quantity", mThisOrder.Quantity);
+            DB.AddParameter("@OrderDate", mThisOrder.OrderDate);
+            DB.AddParameter("@NextDayDelivery", mThisOrder.NextDayDelivery);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrder_Update");
+        }
     }
 }
