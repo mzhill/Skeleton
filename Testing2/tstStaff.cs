@@ -109,7 +109,7 @@ namespace Testing2
             //Boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 StaffID = 10;
+            Int32 StaffID = 2;
             //invoke the method
             Found = AStaff.Find(StaffID);
             //test to see if the result is true
@@ -152,7 +152,7 @@ namespace Testing2
             //invoke the method
             Found = AStaff.Find(StaffID);
             //check the property
-            if (AStaff.DateJoined != Convert.ToDateTime("14/08/2002"))
+            if (AStaff.DateJoined != Convert.ToDateTime("03/01/2001"))
             {
                 OK = false;
             }
@@ -170,7 +170,7 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 5;
+            Int32 StaffID = 1;
             //invoke the method
             Found = AStaff.Find(StaffID);
             //check the property
@@ -192,7 +192,7 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 5;
+            Int32 StaffID = 1;
             //invoke the method
             Found = AStaff.Find(StaffID);
             //check the property
