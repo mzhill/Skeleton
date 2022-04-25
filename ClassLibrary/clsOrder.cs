@@ -80,7 +80,7 @@ namespace ClassLibrary
 
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
-            //add the parameter for the shoe id to search for
+            //add the parameter for the order id to search for
             DB.AddParameter("@OrderID", OrderID);
             //execute the stored procedure
             DB.Execute("sproc_tblOrder_FilterByOrderID");

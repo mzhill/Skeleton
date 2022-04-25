@@ -201,21 +201,21 @@ namespace Testing3
         public void ReportByCustomerUsernameTestDataFound()
         {
             //create an instance of the filtered data#
-            clsOrderCollection FilteredOrder = new clsOrderCollection();
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
             //var to store outcome
             Boolean OK = true;
             //apply a customer username that does not exist
-            FilteredOrder.ReportByCustomerUsername("White");
+            FilteredOrders.ReportByCustomerUsername("White");
             //check that the correct number of records are found
-            if (FilteredOrder.Count == 2)
+            if (FilteredOrders.Count == 2)
             {
-                //check that the first record is ID 4
-                if (FilteredOrder.OrderList[0].OrderID != 4)
+                //check that the first record is ID 27
+                if (FilteredOrders.OrderList[0].OrderID != 27)
                 {
                     OK = false;
                 }
-                //check that the first record is ID 5
-                if (FilteredOrder.OrderList[1].OrderID != 5)
+                //check that the first record is ID 28
+                if (FilteredOrders.OrderList[1].OrderID != 28)
                 {
                     OK = false;
                 }

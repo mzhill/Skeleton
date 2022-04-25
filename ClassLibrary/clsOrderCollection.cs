@@ -75,7 +75,7 @@ namespace ClassLibrary
             DB.AddParameter("Order Date", mThisOrder.OrderDate);
             DB.AddParameter("Next Day Delivery", mThisOrder.NextDayDelivery);
             //execute the query returning the primary key value
-            return DB.Execute("sproc_tblOrder_Insert");
+            return mThisOrder.OrderID;
         }
         public void Update()
         {
@@ -117,30 +117,8 @@ namespace ClassLibrary
         }
         void PopulateArray(clsDataConnection DB)
         {
-            //populates the array list based on the data table in the parameter DB
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record count
-            Int32 RecordCount;
-            //get the count of records
-            RecordCount = DB.Count;
-            //clear the private array list
-            mOrderList = new List<clsOrder>();
-            //while there are records to process
-            while (Index < RecordCount)
-            {
-                //create a blank Order
-                clsOrder AnOrder = new clsOrder();
-                //read in the fields from the current record
-                AnOrder.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["ShoeID"]);
-                AnOrder.CustomerUsername = Convert.ToString(DB.DataTable.Rows[Index]["CustomerUsername"]);
-                AnOrder.Quantity = Convert.ToInt32(DB.DataTable.Rows[Index]["Quantity"]);
-                AnOrder.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["Order Date"]);
-                AnOrder.NextDayDelivery = Convert.ToBoolean(DB.DataTable.Rows[Index]["Next Day Delivery"]);
-                //add the record to the private data member
-                mOrderList.Add(AnOrder);
-                //point at the next record
-                Index++;
-            }
+
+
         }
+    }
 }
