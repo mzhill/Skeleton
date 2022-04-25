@@ -197,5 +197,35 @@ namespace Testing3
             //test to see that there are no records
             Assert.AreEqual(0, FilteredOrder.Count);
         }
+        [TestMethod]
+        public void ReportByCustomerUsernameTestDataFound()
+        {
+            //create an instance of the filtered data#
+            clsOrderCollection FilteredOrder = new clsOrderCollection();
+            //var to store outcome
+            Boolean OK = true;
+            //apply a customer username that does not exist
+            FilteredOrder.ReportByCustomerUsername("White");
+            //check that the correct number of records are found
+            if (FilteredOrder.Count == 2)
+            {
+                //check that the first record is ID 4
+                if (FilteredOrder.OrderList[0].OrderID != 4)
+                {
+                    OK = false;
+                }
+                //check that the first record is ID 5
+                if (FilteredOrder.OrderList[1].OrderID != 5)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
+        }
     }
 }
