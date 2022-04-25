@@ -29,4 +29,9 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
         //redirect back to the main page
         Response.Redirect("StockList.aspx");
     }
+
+    protected void btnNo_Click(object sender, EventArgs e)
+    {
+
+    }
 }

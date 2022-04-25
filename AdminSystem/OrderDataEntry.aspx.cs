@@ -8,12 +8,37 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
-  
+    //variable to store the primary key with page level scope
+    Int32 OrderID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of the order to be processed
+        OrderID = Convert.ToInt32(Session["OrderID"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record
+            if (OrderID != -1)
+            {
+                //display the current data for the record
+                DisplayOrders();
+            }
+        }
+    }
+    private void DisplayOrders()
+    {
+        //create a new instance of the Order collection
+        clsOrderCollection OrderList = new clsOrderCollection();
+        //find the record to update
+        OrderList.ThisOrder.Find(OrderID);
+        //display the data for this record
+        txtOrderID.Text = OrderList.ThisOrder.OrderID.ToString();
+        txtCustomerUsername.Text = OrderList.ThisOrder.CustomerUsername;
+        txtQuantity.Text = OrderList.ThisOrder.Quantity.ToString();
+        txtOrderDate.Text = OrderList.ThisOrder.OrderDate.ToString();
+        chkNDD.Checked = OrderList.ThisOrder.NextDayDelivery;
     }
 
-  
+
     protected void btnOK_Click(object sender, EventArgs e)
     {
         //create a new instance of clsOrder
@@ -56,10 +81,29 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //capture the next day delivery
             AnOrder.NextDayDelivery = Convert.ToBoolean(chkNDD.Checked);
 
-            //store the order in the session object
-            Session["AnOrder"] = AnOrder;
-            //navigate to the viewer page
-            Response.Redirect("OrderViewer.aspx");
+            //create a new instance of the stock collection
+            clsOrderCollection OrderList = new clsOrderCollection();
+
+            //if this is a new record i.e. OrderID = -1 then add the data
+            if (Convert.ToInt32(txtOrderID.Text) == -1)
+            {
+                //set the ThisOrder property
+                OrderList.ThisOrder = AnOrder;
+                //add the new record
+                OrderList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update
+                OrderList.ThisOrder.Find(Convert.ToInt32(txtOrderID.Text));
+                //set the ThisOrder property
+                OrderList.ThisOrder = AnOrder;
+                //update the record
+                OrderList.Update();
+            }
+            //redirect back to the listpage
+            Response.Redirect("OrderList.aspx");
         }
         else
         {
