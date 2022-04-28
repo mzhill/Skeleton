@@ -144,11 +144,11 @@ namespace Testing_Framework
             TestItem.ShoeID = PrimaryKey;
             //modify the test data
             TestItem.ShoeID = 2;
-            TestItem.RetailPrice = "200";
-            TestItem.ResalePrice = "450";
-            TestItem.Catergory = "Jordan";
+            TestItem.RetailPrice = "180";
+            TestItem.ResalePrice = "265";
+            TestItem.Catergory = "Yeezy";
             TestItem.ReleaseDate = DateTime.Now.Date;
-            TestItem.Stock = true;
+            TestItem.Stock = false;
             //set ThisShoeValue to the test data
             AllStock.ThisShoeValue = TestItem;
             //update the record
