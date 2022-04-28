@@ -141,8 +141,8 @@ namespace Testing2
             TestItem.StaffID = PrimaryKey;
             //modify the test data
             TestItem.StaffID = 2;
-            TestItem.StaffName = "Air Max BW";
-            TestItem.Position = "Cream";
+            TestItem.StaffName = "Hasan Namik";
+            TestItem.Position = "Staff Member";
             TestItem.StaffSalary = 3;
             TestItem.DateJoined = DateTime.Now.Date;
             TestItem.CurrentlyWorking = true;
@@ -225,12 +225,12 @@ namespace Testing2
             if (FilteredStaff.Count == 2)
             {
                 //check that the first record is ID 4
-                if (FilteredStaff.StaffList[0].StaffID != 4)
+                if (FilteredStaff.StaffList[0].StaffID != 2)
                 {
                     OK = false;
                 }
                 //check that the first record is ID 5
-                if (FilteredStaff.StaffList[1].StaffID != 5)
+                if (FilteredStaff.StaffList[1].StaffID != 16)
                 {
                     OK = false;
                 }

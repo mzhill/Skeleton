@@ -72,7 +72,7 @@ namespace ClassLibrary
             DB.AddParameter("StaffName", mThisStaff.StaffName);
             DB.AddParameter("Position", mThisStaff.Position);
             DB.AddParameter("StaffSalary", mThisStaff.StaffSalary);
-            DB.AddParameter("Initial Release Date", mThisStaff.DateJoined);
+            DB.AddParameter("DateJoined", mThisStaff.DateJoined);
             DB.AddParameter("CurrentlyWorking", mThisStaff.CurrentlyWorking);
             //execute the query returning the primary key value
             return mThisStaff.StaffID;
@@ -139,7 +139,7 @@ namespace ClassLibrary
                 AStaff.StaffName = Convert.ToString(DB.DataTable.Rows[Index]["StaffName"]);
                 AStaff.Position = Convert.ToString(DB.DataTable.Rows[Index]["Position"]);
                 AStaff.StaffSalary = Convert.ToInt32(DB.DataTable.Rows[Index]["StaffSalary"]);
-                AStaff.DateJoined = Convert.ToDateTime(DB.DataTable.Rows[Index]["Initial Release Date"]);
+                AStaff.DateJoined = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateJoined"]);
                 AStaff.CurrentlyWorking = Convert.ToBoolean(DB.DataTable.Rows[Index]["CurrentlyWorking"]);
                 //add the record to the private data member
                 mStaffList.Add(AStaff);
