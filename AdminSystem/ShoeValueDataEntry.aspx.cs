@@ -146,4 +146,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
             lblError.Text = "Error: No stock has been found with the Shoe ID " + ShoeID;
         }
     }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+
+    }
 }

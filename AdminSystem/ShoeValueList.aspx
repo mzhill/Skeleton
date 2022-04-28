@@ -9,6 +9,23 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:ListBox ID="lstShoeValueList" runat="server" Height="320px" Width="380px"></asp:ListBox>
+            <br />
+            <br />
+            <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
+        &nbsp;<asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
+            &nbsp;<asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
+            <br />
+            <br />
+            <asp:Label ID="lblFilter" runat="server" Text="Enter a category: "></asp:Label>
+&nbsp;<asp:TextBox ID="txtFilter" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Button ID="btnApply" runat="server" OnClick="btnApply_Click" Text="Apply" />
+&nbsp;<asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
+            <br />
+            <br />
+            <asp:Label ID="lblError" runat="server"></asp:Label>
         </div>
     </form>
 </body>
