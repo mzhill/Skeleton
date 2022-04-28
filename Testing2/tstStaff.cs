@@ -170,7 +170,7 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 1;
+            Int32 StaffID = 2;
             //invoke the method
             Found = AStaff.Find(StaffID);
             //check the property
@@ -192,7 +192,7 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 1;
+            Int32 StaffID = 2;
             //invoke the method
             Found = AStaff.Find(StaffID);
             //check the property
@@ -683,7 +683,7 @@ namespace Testing2
             clsStaff AStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
-            //set the initial release date to non date value
+            //set the DateJoined to non date value
             string DateJoined = "this is not a date!";
             //invoke the method
             Error = AStaff.Valid(StaffName, Position, StaffSalary, DateJoined);
