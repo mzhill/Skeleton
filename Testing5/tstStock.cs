@@ -369,6 +369,22 @@ namespace Testing5
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+        
+        [TestMethod]
+        public void ShoeDescMaxExtreme()
+        {
+            //create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string ShoeDesc = "";
+            ShoeDesc = ShoeDesc.PadRight(499, 'a');
+            //invoke the method
+            Error = AStock.Valid(ShoeDesc, ShoeColour, Quantity, InitialReleaseDate);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
 
         [TestMethod]
         public void ShoeColourMinLessOne()
@@ -478,6 +494,22 @@ namespace Testing5
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
+        
+        [TestMethod]
+        public void ShoeColourMaxExtreme()
+        {
+            //create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string ShoeColour = "";
+            ShoeDesc = ShoeColour.PadRight(499, 'a');
+            //invoke the method
+            Error = AStock.Valid(ShoeDesc, ShoeColour, Quantity, InitialReleaseDate);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
 
         [TestMethod]
         public void QuantityMin()
@@ -571,6 +603,22 @@ namespace Testing5
             Error = AStock.Valid(ShoeDesc, ShoeColour, Quantity, InitialReleaseDate);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
+        }
+        
+        [TestMethod]
+        public void QuantityMaxExtreme()
+        {
+            //create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string Quantity = "";
+            Quantity = Quantity.PadRight(499, 'a');
+            //invoke the method
+            Error = AStock.Valid(ShoeDesc, ShoeColour, Quantity, InitialReleaseDate);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
