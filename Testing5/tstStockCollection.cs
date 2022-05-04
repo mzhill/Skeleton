@@ -229,7 +229,7 @@ namespace Testing5
                 {
                     OK = false;
                 }
-                //check that the first record is ID 5
+                //check that the second record is ID 5
                 if (FilteredStock.StockList[1].ShoeID != 5)
                 {
                     OK = false;
