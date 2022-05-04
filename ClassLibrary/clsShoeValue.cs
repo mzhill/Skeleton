@@ -191,25 +191,25 @@ namespace ClassLibrary
             if (ResalePrice.Length == 0)
             {
                 //record the error
-                Error = Error + "The post code may not be blank : ";
+                Error = Error + "The resale may not be blank : ";
             }
             //if the post code is too long
             if (ResalePrice.Length > 9)
             {
                 //record the error
-                Error = Error + "The post code must be less than 9 characters : ";
+                Error = Error + "The resale price must be less than 9 characters : ";
             }
             //is the street blank
             if (Catergory.Length == 0)
             {
                 //record the error
-                Error = Error + "The street may not be blank : ";
+                Error = Error + "The category may not be blank : ";
             }
             //if the street is too long
             if (Catergory.Length > 50)
             {
                 //record the error
-                Error = Error + "The street must be less than 50 characters : ";
+                Error = Error + "The category must be less than 50 characters : ";
             }
 
             //return any error messages
