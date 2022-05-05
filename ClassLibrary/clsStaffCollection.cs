@@ -107,7 +107,7 @@ namespace ClassLibrary
 
         public void ReportByPosition(string Position)
         {
-            //filters the records based on a full or partial shoe colour
+            //filters the records based on a full or partial position
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //send the Position parameter to the database
