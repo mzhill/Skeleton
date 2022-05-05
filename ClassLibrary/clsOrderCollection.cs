@@ -117,7 +117,31 @@ namespace ClassLibrary
         }
         void PopulateArray(clsDataConnection DB)
         {
-
+            //populates the array list based on the data table in the parameter DB
+            //var for the index
+            Int32 Index = 0;
+            //var to store the record count
+            Int32 RecordCount;
+            //get the count of records
+            RecordCount = DB.Count;
+            //clear the private array list
+            mOrderList = new List<clsOrder>();
+            //while there are records to process
+            while (Index < RecordCount)
+            {
+                //create a blank stock
+                clsOrder AnOrder = new clsOrder();
+                //read in the fields from the current record
+                AnOrder.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
+                AnOrder.CustomerUsername = Convert.ToString(DB.DataTable.Rows[Index]["CustomerUsername"]);
+                AnOrder.Quantity = Convert.ToInt32(DB.DataTable.Rows[Index]["Quantity"]);
+                AnOrder.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
+                AnOrder.NextDayDelivery = Convert.ToBoolean(DB.DataTable.Rows[Index]["NextDayDelivery"]);
+                //add the record to the private data member
+                mOrderList.Add(AnOrder);
+                //point at the next record
+                Index++;
+            }
 
         }
     }

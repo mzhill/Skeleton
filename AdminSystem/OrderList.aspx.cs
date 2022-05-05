@@ -91,7 +91,7 @@ public partial class _1_List : System.Web.UI.Page
         //set the name of the primary key
         lstOrderList.DataValueField = "OrderID";
         //set the name of the field to display
-        lstOrderList.DataTextField = "Customer Username";
+        lstOrderList.DataTextField = "CustomerUsername";
         //bind the data to the list
         lstOrderList.DataBind();
     }

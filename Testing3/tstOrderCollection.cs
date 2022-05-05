@@ -205,7 +205,7 @@ namespace Testing3
             //var to store outcome
             Boolean OK = true;
             //apply a customer username that does not exist
-            FilteredOrders.ReportByCustomerUsername("White");
+            FilteredOrders.ReportByCustomerUsername("JamesSmith");
             //check that the correct number of records are found
             if (FilteredOrders.Count == 2)
             {
