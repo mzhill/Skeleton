@@ -420,6 +420,22 @@ namespace Testing3
         }
 
         [TestMethod]
+        public void QuantityExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string Quantity = "";
+            Quantity = Quantity.PadRight(499, 'a');
+            //invoke the method
+            Error = AnOrder.Valid(CustomerUsername, Quantity, OrderDate);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
         public void OrderDateExtremeMin()
         {
             //create an instance of the class we want to create
